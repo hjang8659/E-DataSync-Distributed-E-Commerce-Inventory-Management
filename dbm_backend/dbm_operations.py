@@ -1,4 +1,4 @@
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, text
 from hashing import hash_prod
 
 class DBMOperations:
@@ -27,11 +27,13 @@ class DBMOperations:
         Insert record into hashed database after hashing product name.
         """
         product_name = self._get_product_name(query)
-        db_index = self.hash.db[self.hash.generate_hash(product_name)]
+        db_index = self.hash.generate_hash(product_name)
         
         with self.engines[db_index].connect() as con:
             try:
-                con.execute(query)
+                con.execute(text(query))
+                con.commit()
+                con.close()
                 return 1
             except Exception as e:
                 print(e)
@@ -42,8 +44,11 @@ class DBMOperations:
         Execute query on a given engine.
         """
         with engine.connect() as con:
-            return con.execute(query)
-
+            res = con.execute(text(query))
+            con.commit()
+            con.close()
+            return res
+        
     def select(self, query):
         """
         Perform select operation on both databases and return combined results if successful.
@@ -83,5 +88,6 @@ class DBMOperations:
 
 if __name__ == '__main__':
     opr = DBMOperations()
-    flag, res = opr.select('select * from products')
-    print(flag)
+    
+    flag, res= opr.select("select * from products limit 10")
+    print(flag, res)
