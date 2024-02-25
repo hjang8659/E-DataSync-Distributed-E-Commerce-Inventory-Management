@@ -1,70 +1,87 @@
 from sqlalchemy import create_engine
-import sqlparse
 from hashing import hash_prod
 
-class dbm_operations(): # before calling the methods of this class: 1. Get table name 2. Get CLI input 3. Call relevant functions based on contains method
+class DBMOperations:
+    """
+    Class to perform database operations.
+    """
+
     def __init__(self):
+        """
+        Initialize the class with database engines.
+        """
         self.hash = hash_prod()
-        self.engine_db1 = create_engine('mysql+pymysql://myuser3:Dsc!5602023@104.32.175.9:3306/mydatabase')
-        self.engine_db2 =  create_engine('mysql+pymysql://myuser3:Dsc!5602023@104.32.175.9:3306/mydatabase2')
-        self.engine_index = {0: self.engine_db1, 1: self.engine_db2}
+        self.engines = {
+            0: create_engine('mysql+pymysql://myuser3:Dsc!5602023@104.32.175.9:3306/mydatabase'),
+            1: create_engine('mysql+pymysql://myuser3:Dsc!5602023@104.32.175.9:3306/mydatabase2')
+        }
 
-    def insert(self, query): # insert record in hashed db after hashing on product name
-        product_name = query.split('values')[1].split(')')[0].split('(')[1].split(',')[0]
+    def _get_product_name(self, query):
+        """
+        Helper function to extract product name from query.
+        """
+        return query.split('values')[1].split(')')[0].split('(')[1].split(',')[0]
+
+    def insert(self, query):
+        """
+        Insert record into hashed database after hashing product name.
+        """
+        product_name = self._get_product_name(query)
         db_index = self.hash.db[self.hash.generate_hash(product_name)]
-    
-        with self.engine_index[db_index].connect() as con:
+        
+        with self.engines[db_index].connect() as con:
             try:
-                res = con.execute(query)
+                con.execute(query)
                 return 1
-            
-            except:
+            except Exception as e:
+                print(e)
                 return 0
-            
-    def select(self, query): # perform on both dbs, return combine results if successful else return unsuccessful message explaining reason
+
+    def _execute_query(self, engine, query):
+        """
+        Execute query on a given engine.
+        """
+        with engine.connect() as con:
+            return con.execute(query)
+
+    def select(self, query):
+        """
+        Perform select operation on both databases and return combined results if successful.
+        """
         try: 
-            with self.engine_db1.connect() as con:
-                    res1 = con.execute(query)
-            with self.engine_db2.connect() as con:
-                    res2 = con.execute(query)   
+            results = []
+            for engine in self.engines.values():
+                results.extend(self._execute_query(engine, query))
+            return 1, results
+        except Exception as e:
+            print(e)
+            return 0, None
 
-            res = res1 + res2
-            return 1, res
-         
-        except:
-            return 0
-                
-
-    def update(self, query): # modify records in both dbs, return successful message if successful else return unsuccessful message explaining reason
-        try: 
-            with self.engine_db1.connect() as con:
-                    res = con.execute(query)
-            with self.engine_db2.connect() as con:
-                    res = con.execute(query)   
-
+    def update(self, query):
+        """
+        Modify records in both databases.
+        """
+        try:
+            for engine in self.engines.values():
+                self._execute_query(engine, query)
             return 1
-         
-        except:
+        except Exception as e:
+            print(e)
             return 0
-                
 
-    def delete(self, query): # perform on both dbs, return successful message if successful else return unsuccessful message explaining reason
-        try: 
-            with self.engine_db1.connect() as con:
-                    res = con.execute(query)
-            with self.engine_db2.connect() as con:
-                    res = con.execute(query)   
-                    
+    def delete(self, query):
+        """
+        Delete records from both databases.
+        """
+        try:
+            for engine in self.engines.values():
+                self._execute_query(engine, query)
             return 1
-         
-        except:
+        except Exception as e:
+            print(e)
             return 0
 
- 
-    
-    
-
-
-
-
-
+if __name__ == '__main__':
+    opr = DBMOperations()
+    flag, res = opr.select('select * from products')
+    print(flag)
