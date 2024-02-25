@@ -2,7 +2,7 @@ from sqlalchemy import create_engine
 import pandas as pd
 import argparse
 
-server_string = 'mysql+pymysql://myuser3:Dsc!5602023@104.32.175.9:3306/'
+connection_string = 'mysql+pymysql://myuser3:Dsc!5602023@104.32.175.9:3306/'
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='create and populate tables in relevant database')
