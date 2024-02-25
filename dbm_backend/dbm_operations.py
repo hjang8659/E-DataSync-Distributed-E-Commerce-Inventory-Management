@@ -16,7 +16,7 @@ class dbm_operations(): # before calling the methods of this class: 1. Get table
         with self.engine_index[db_index].connect() as con:
             try:
                 res = con.execute(query)
-                return 1, res
+                return 1
             
             except:
                 return 0
