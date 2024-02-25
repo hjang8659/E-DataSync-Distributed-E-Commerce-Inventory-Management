@@ -14,7 +14,7 @@ if __name__ == '__main__':
     file_path, db, table = args.file, args.db, args.table
 
     records = pd.read_csv(file_path)
-    engine = create_engine(server_string + db)
+    engine = create_engine(connection_string + db)
 
     if 'Unnamed: 0' in records.columns.tolist():
         records = records.iloc[:,1:]
