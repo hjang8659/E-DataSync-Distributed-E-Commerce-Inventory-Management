@@ -4,3 +4,4 @@ pandas
 pydeck
 streamlit
 pymongo
+sqlparse
