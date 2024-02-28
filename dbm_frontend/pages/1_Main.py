@@ -2,7 +2,6 @@ import streamlit as st
 
 def main():
     st.title("Database 🗄️")
-
     # Prompt user for database choice
     database_choice = st.radio("Select a database to access:", ["Products", "Suppliers"])
 
