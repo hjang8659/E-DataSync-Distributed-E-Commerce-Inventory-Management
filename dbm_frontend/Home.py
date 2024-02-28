@@ -1,5 +1,13 @@
 import streamlit as st
 from streamlit.logger import get_logger
+import os
+import sys
+
+current_dir = os.path.dirname(os.path.abspath(__file__))
+parent_dir = os.path.dirname(current_dir)
+sys.path.append(parent_dir)
+pages_dir = os.path.join(current_dir, 'pages')
+sys.path.append(pages_dir)
 
 class DSCI551Project:
     def __init__(self):
