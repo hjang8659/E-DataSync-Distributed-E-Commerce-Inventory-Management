@@ -26,6 +26,8 @@ class DeveloperPage:
             st.write("## Developer Command Line Interface")
             cli_command = st.text_area("Enter a command then click Run Command:")
             st.button("Run Command")
+        else:
+            cli_command = 0
             
         return cli_command
 
