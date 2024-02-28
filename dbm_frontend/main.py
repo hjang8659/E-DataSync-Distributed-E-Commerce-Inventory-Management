@@ -16,10 +16,9 @@ class DSCI551Project:
     def run(self):
         st.set_page_config(
             page_title="Home",
-            page_icon="🏠",
         )
 
-        st.write("### DSCI 551 Project 🚀")
+        st.write("### DSCI 551 Project")
 
         st.write("# E-DataSync: Distributed E-Commerce Inventory Management")
 

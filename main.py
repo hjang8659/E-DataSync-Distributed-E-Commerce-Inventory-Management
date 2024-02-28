@@ -1,6 +1,6 @@
 import pandas as pd
 from dbm_backend.dbm_operations import DBMOperations
-from dbm_frontend.Home import DSCI551Project
+from dbm_frontend.main import DSCI551Project
 import sys
 import os
 
