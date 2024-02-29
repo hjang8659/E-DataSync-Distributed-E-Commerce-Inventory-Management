@@ -1,0 +1,943 @@
+brand,address,description,founding_year,num_of_products
+Trm,Address for Trm,Description for Trm,2010,2
+Nakoda,Address for Nakoda,Description for Nakoda,1956,41
+Nature Protect,Address for Nature Protect,Description for Nature Protect,2017,3
+Bionova,Address for Bionova,Description for Bionova,2005,65
+NUTRASHIL,Address for NUTRASHIL,Description for NUTRASHIL,1926,70
+Sapphire,Address for Sapphire,Description for Sapphire,1925,31
+Graminway,Address for Graminway,Description for Graminway,2020,13
+IRICH,Address for IRICH,Description for IRICH,1973,6
+Cello,Address for Cello,Description for Cello,1993,95
+Fit & Flex,Address for Fit & Flex,Description for Fit & Flex,1979,58
+Safe Harvest,Address for Safe Harvest,Description for Safe Harvest,1936,95
+Cadbury,Address for Cadbury,Description for Cadbury,1962,43
+Steelo,Address for Steelo,Description for Steelo,1995,23
+Liril,Address for Liril,Description for Liril,1961,93
+Pantai,Address for Pantai,Description for Pantai,1967,83
+Spice Story,Address for Spice Story,Description for Spice Story,1952,84
+Mother's Recipe,Address for Mother's Recipe,Description for Mother's Recipe,1952,94
+Pekers,Address for Pekers,Description for Pekers,1971,64
+Red Hunt,Address for Red Hunt,Description for Red Hunt,1925,14
+Shareat,Address for Shareat,Description for Shareat,1997,32
+Quick Dry,Address for Quick Dry,Description for Quick Dry,1914,37
+Bisk Farm,Address for Bisk Farm,Description for Bisk Farm,2015,69
+Azafran,Address for Azafran,Description for Azafran,1907,73
+Pears,Address for Pears,Description for Pears,2004,5
+INATUR ,Address for INATUR ,Description for INATUR ,1946,97
+Natures Essence,Address for Natures Essence,Description for Natures Essence,2018,62
+Bamboooz,Address for Bamboooz,Description for Bamboooz,1935,5
+Dettol,Address for Dettol,Description for Dettol,1921,35
+Pro Nature,Address for Pro Nature,Description for Pro Nature,2018,85
+Hawkins Futura,Address for Hawkins Futura,Description for Hawkins Futura,1974,34
+Gowardhan,Address for Gowardhan,Description for Gowardhan,1997,2
+Townbus,Address for Townbus,Description for Townbus,1967,0
+Brut,Address for Brut,Description for Brut,1979,1
+Fuschia,Address for Fuschia,Description for Fuschia,1997,4
+Sunfeast,Address for Sunfeast,Description for Sunfeast,1985,53
+Omega,Address for Omega,Description for Omega,1931,95
+Slurrp Farm,Address for Slurrp Farm,Description for Slurrp Farm,1920,42
+Elovera,Address for Elovera,Description for Elovera,1949,59
+Soulflower,Address for Soulflower,Description for Soulflower,1931,7
+Wagh Bakri,Address for Wagh Bakri,Description for Wagh Bakri,1924,63
+Aer,Address for Aer,Description for Aer,1911,84
+ACT II,Address for ACT II,Description for ACT II,1984,65
+Akshayakalpa,Address for Akshayakalpa,Description for Akshayakalpa,1993,89
+Priya,Address for Priya,Description for Priya,1977,94
+Dentoshine  ,Address for Dentoshine  ,Description for Dentoshine  ,1986,1
+BORGES,Address for BORGES,Description for BORGES,1978,7
+Odonil ,Address for Odonil ,Description for Odonil ,1973,27
+DP,Address for DP,Description for DP,1953,28
+Medimix,Address for Medimix,Description for Medimix,1924,6
+Mysore Sandal,Address for Mysore Sandal,Description for Mysore Sandal,1941,50
+Kohinoor,Address for Kohinoor,Description for Kohinoor,2002,9
+MOM Meal of the Moment,Address for MOM Meal of the Moment,Description for MOM Meal of the Moment,1976,58
+Bio-Oil,Address for Bio-Oil,Description for Bio-Oil,1943,85
+Classmate,Address for Classmate,Description for Classmate,1918,56
+Paper Boat,Address for Paper Boat,Description for Paper Boat,1907,8
+PRISTINE,Address for PRISTINE,Description for PRISTINE,1937,97
+999,Address for 999,Description for 999,1987,24
+Zoe,Address for Zoe,Description for Zoe,1942,92
+Annapoorna,Address for Annapoorna,Description for Annapoorna,1919,38
+Himalaya,Address for Himalaya,Description for Himalaya,1981,60
+United,Address for United,Description for United,1969,73
+Timios,Address for Timios,Description for Timios,1980,75
+On1y,Address for On1y,Description for On1y,2016,46
+Asian,Address for Asian,Description for Asian,2010,83
+Wipro,Address for Wipro,Description for Wipro,2013,15
+Appitas,Address for Appitas,Description for Appitas,1937,61
+Grb,Address for Grb,Description for Grb,1928,15
+Kaya Clinic,Address for Kaya Clinic,Description for Kaya Clinic,1938,47
+Olay,Address for Olay,Description for Olay,1952,99
+K.P. Namboodiris,Address for K.P. Namboodiris,Description for K.P. Namboodiris,1911,53
+Tulips,Address for Tulips,Description for Tulips,1996,17
+Safal,Address for Safal,Description for Safal,1997,37
+Aachi,Address for Aachi,Description for Aachi,1911,97
+Chandrika ,Address for Chandrika ,Description for Chandrika ,1982,85
+Faultless,Address for Faultless,Description for Faultless,1933,58
+Steel Lock,Address for Steel Lock,Description for Steel Lock,1923,81
+Urban Platter,Address for Urban Platter,Description for Urban Platter,1909,92
+Bombay Shaving Company,Address for Bombay Shaving Company,Description for Bombay Shaving Company,1979,66
+Princeware,Address for Princeware,Description for Princeware,1966,5
+Vlcc,Address for Vlcc,Description for Vlcc,1997,27
+Typhoo,Address for Typhoo,Description for Typhoo,1975,29
+Habit,Address for Habit,Description for Habit,2001,76
+MTR,Address for MTR,Description for MTR,2010,99
+Soft Touch,Address for Soft Touch,Description for Soft Touch,1927,99
+Aroma Magic ,Address for Aroma Magic ,Description for Aroma Magic ,1994,39
+Dabur Vatika,Address for Dabur Vatika,Description for Dabur Vatika,1949,77
+Schwarzkopf Professional,Address for Schwarzkopf Professional,Description for Schwarzkopf Professional,1992,51
+Yoga bar,Address for Yoga bar,Description for Yoga bar,1935,76
+Kaya Youth,Address for Kaya Youth,Description for Kaya Youth,1963,51
+Prakrta,Address for Prakrta,Description for Prakrta,1938,83
+24 Mantra,Address for 24 Mantra,Description for 24 Mantra,1992,18
+Schar,Address for Schar,Description for Schar,1991,25
+Wild Ideas,Address for Wild Ideas,Description for Wild Ideas,2015,36
+MyGlamm,Address for MyGlamm,Description for MyGlamm,2013,87
+Puramate,Address for Puramate,Description for Puramate,1903,48
+Tetley,Address for Tetley,Description for Tetley,1991,4
+Liao,Address for Liao,Description for Liao,1984,90
+RiteBite Max Protein,Address for RiteBite Max Protein,Description for RiteBite Max Protein,1945,27
+Jensons,Address for Jensons,Description for Jensons,1975,52
+Prestige,Address for Prestige,Description for Prestige,1957,58
+Makino,Address for Makino,Description for Makino,1956,60
+Veet,Address for Veet,Description for Veet,1944,27
+Jergens,Address for Jergens,Description for Jergens,1955,33
+Joyo Steel,Address for Joyo Steel,Description for Joyo Steel,1936,58
+B Vishal,Address for B Vishal,Description for B Vishal,1994,96
+BIC Cello,Address for BIC Cello,Description for BIC Cello,1926,36
+PureCult,Address for PureCult,Description for PureCult,1945,53
+Morpheme Remedies,Address for Morpheme Remedies,Description for Morpheme Remedies,1942,8
+Sln  ,Address for Sln  ,Description for Sln  ,1974,54
+Dhatu Organics & Naturals,Address for Dhatu Organics & Naturals,Description for Dhatu Organics & Naturals,1929,75
+Sensodyne,Address for Sensodyne,Description for Sensodyne,1906,78
+Floroma,Address for Floroma,Description for Floroma,1942,45
+Octus,Address for Octus,Description for Octus,1957,19
+Turn Organic ,Address for Turn Organic ,Description for Turn Organic ,1979,74
+Skinn by Titan,Address for Skinn by Titan,Description for Skinn by Titan,1977,32
+By Nature,Address for By Nature,Description for By Nature,2006,45
+Gits,Address for Gits,Description for Gits,1970,94
+Yardley London,Address for Yardley London,Description for Yardley London,1975,30
+Mdh,Address for Mdh,Description for Mdh,1948,26
+Herbal Essence,Address for Herbal Essence,Description for Herbal Essence,1902,94
+The Gourmet Jar,Address for The Gourmet Jar,Description for The Gourmet Jar,1965,19
+Dabur,Address for Dabur,Description for Dabur,2000,22
+Fortune ,Address for Fortune ,Description for Fortune ,1901,83
+Patanjali,Address for Patanjali,Description for Patanjali,1985,4
+Skore,Address for Skore,Description for Skore,1931,16
+Lotus Herbals,Address for Lotus Herbals,Description for Lotus Herbals,1983,21
+Pampers ,Address for Pampers ,Description for Pampers ,1951,82
+Complan,Address for Complan,Description for Complan,2010,63
+Munchys,Address for Munchys,Description for Munchys,2013,76
+Dove,Address for Dove,Description for Dove,1925,27
+Keya,Address for Keya,Description for Keya,2006,3
+Soyfit,Address for Soyfit,Description for Soyfit,1907,26
+Prasukh,Address for Prasukh,Description for Prasukh,1959,7
+Bechef,Address for Bechef,Description for Bechef,1961,2
+SSS,Address for SSS,Description for SSS,1928,36
+Pidilite,Address for Pidilite,Description for Pidilite,1904,99
+Jacques Bogart,Address for Jacques Bogart,Description for Jacques Bogart,2015,60
+Gala,Address for Gala,Description for Gala,1994,66
+Milky Mist,Address for Milky Mist,Description for Milky Mist,1952,23
+MeraKisan,Address for MeraKisan,Description for MeraKisan,1962,45
+Kitchens Of India,Address for Kitchens Of India,Description for Kitchens Of India,1960,60
+Ratan,Address for Ratan,Description for Ratan,2003,34
+As Chefs Cook,Address for As Chefs Cook,Description for As Chefs Cook,1948,98
+Kittos,Address for Kittos,Description for Kittos,1940,92
+Top Ramen ,Address for Top Ramen ,Description for Top Ramen ,1907,45
+Blue Dragon,Address for Blue Dragon,Description for Blue Dragon,2011,70
+Bikaji,Address for Bikaji,Description for Bikaji,1938,84
+Fackelmann,Address for Fackelmann,Description for Fackelmann,1979,70
+BB Home,Address for BB Home,Description for BB Home,1923,72
+Moov,Address for Moov,Description for Moov,1974,16
+Pigeon Baby,Address for Pigeon Baby,Description for Pigeon Baby,2007,71
+MISHT,Address for MISHT,Description for MISHT,1926,52
+Kuxuna,Address for Kuxuna,Description for Kuxuna,1911,15
+Weikfield,Address for Weikfield,Description for Weikfield,1928,65
+Everyuth Naturals,Address for Everyuth Naturals,Description for Everyuth Naturals,1920,61
+Wild Stone,Address for Wild Stone,Description for Wild Stone,2018,15
+Samyang,Address for Samyang,Description for Samyang,1932,91
+Closeup,Address for Closeup,Description for Closeup,1987,1
+Schwarzkopf,Address for Schwarzkopf,Description for Schwarzkopf,1994,7
+Johnson's baby,Address for Johnson's baby,Description for Johnson's baby,1984,45
+It's Skin,Address for It's Skin,Description for It's Skin,1949,27
+sumeru,Address for sumeru,Description for sumeru,2013,90
+Comfort,Address for Comfort,Description for Comfort,1930,1
+Veeba,Address for Veeba,Description for Veeba,1948,94
+Reliance Plast,Address for Reliance Plast,Description for Reliance Plast,1900,65
+Richfeel,Address for Richfeel,Description for Richfeel,2019,50
+Nirlon,Address for Nirlon,Description for Nirlon,1920,50
+T BASE,Address for T BASE,Description for T BASE,1994,67
+Skin Cottage ,Address for Skin Cottage ,Description for Skin Cottage ,1933,45
+Milton - Spotzero,Address for Milton - Spotzero,Description for Milton - Spotzero,2005,91
+Maple Joe,Address for Maple Joe,Description for Maple Joe,1979,88
+Krosno - Europe,Address for Krosno - Europe,Description for Krosno - Europe,1907,80
+Laplast,Address for Laplast,Description for Laplast,1968,26
+Iveo ,Address for Iveo ,Description for Iveo ,1938,74
+Sprig Tea,Address for Sprig Tea,Description for Sprig Tea,1921,74
+Unibic,Address for Unibic,Description for Unibic,1907,87
+Batter Box,Address for Batter Box,Description for Batter Box,1974,88
+Knorr,Address for Knorr,Description for Knorr,1988,2
+USTRAA,Address for USTRAA,Description for USTRAA,1937,58
+Badshah,Address for Badshah,Description for Badshah,1948,50
+Whisper ,Address for Whisper ,Description for Whisper ,1945,28
+Green Leaf,Address for Green Leaf,Description for Green Leaf,2011,49
+Kantan,Address for Kantan,Description for Kantan,1991,9
+Ariel ,Address for Ariel ,Description for Ariel ,1946,83
+Raju's Cloth,Address for Raju's Cloth,Description for Raju's Cloth,1906,94
+Sprig,Address for Sprig,Description for Sprig,1945,43
+Health Sutra,Address for Health Sutra,Description for Health Sutra,1979,22
+Nutty Yogi,Address for Nutty Yogi,Description for Nutty Yogi,1942,29
+Beeta,Address for Beeta,Description for Beeta,2019,15
+Ajmal,Address for Ajmal,Description for Ajmal,1989,20
+Kelloggs,Address for Kelloggs,Description for Kelloggs,1927,32
+Colavita,Address for Colavita,Description for Colavita,1947,88
+Peebuddy,Address for Peebuddy,Description for Peebuddy,1991,39
+Signoraware,Address for Signoraware,Description for Signoraware,1930,47
+Good Home,Address for Good Home,Description for Good Home,1929,29
+Remia,Address for Remia,Description for Remia,1913,12
+Britannia,Address for Britannia,Description for Britannia,1979,49
+Malabar Coast,Address for Malabar Coast,Description for Malabar Coast,1950,90
+Ego of Paris,Address for Ego of Paris,Description for Ego of Paris,1939,32
+Cartini,Address for Cartini,Description for Cartini,1968,62
+Ponds,Address for Ponds,Description for Ponds,2021,83
+Jus Amazin,Address for Jus Amazin,Description for Jus Amazin,1999,2
+Air wick,Address for Air wick,Description for Air wick,2017,30
+ITC Master Chef,Address for ITC Master Chef,Description for ITC Master Chef,1985,54
+Malkist,Address for Malkist,Description for Malkist,1992,76
+York,Address for York,Description for York,1917,10
+Klassic,Address for Klassic,Description for Klassic,1963,59
+Lacto Calamine,Address for Lacto Calamine,Description for Lacto Calamine,1987,8
+ColorBar,Address for ColorBar,Description for ColorBar,1903,77
+Shunya,Address for Shunya,Description for Shunya,1965,21
+kwality walls,Address for kwality walls,Description for kwality walls,2000,76
+Natureland Organics,Address for Natureland Organics,Description for Natureland Organics,1902,48
+Ask Foods,Address for Ask Foods,Description for Ask Foods,1980,70
+Skittles,Address for Skittles,Description for Skittles,1987,12
+Palmolive,Address for Palmolive,Description for Palmolive,1903,60
+18 Herbs,Address for 18 Herbs,Description for 18 Herbs,1963,85
+Sebamed,Address for Sebamed,Description for Sebamed,1951,16
+Bon & Bread,Address for Bon & Bread,Description for Bon & Bread,1974,78
+Safewash,Address for Safewash,Description for Safewash,1957,8
+LaOpala,Address for LaOpala,Description for LaOpala,2018,18
+Organic Origins,Address for Organic Origins,Description for Organic Origins,1920,78
+Lifebuoy,Address for Lifebuoy,Description for Lifebuoy,1943,22
+Continental,Address for Continental,Description for Continental,1965,65
+Fem,Address for Fem,Description for Fem,2007,46
+McCain,Address for McCain,Description for McCain,1917,89
+Horlicks,Address for Horlicks,Description for Horlicks,1941,63
+Tex Mex Salsalito,Address for Tex Mex Salsalito,Description for Tex Mex Salsalito,1908,39
+Buffet ,Address for Buffet ,Description for Buffet ,2004,60
+Everest,Address for Everest,Description for Everest,1902,33
+Panasonic,Address for Panasonic,Description for Panasonic,1973,55
+Mama,Address for Mama,Description for Mama,1918,41
+FarmVeda,Address for FarmVeda,Description for FarmVeda,1912,0
+Ongs,Address for Ongs,Description for Ongs,1910,27
+Tify,Address for Tify,Description for Tify,1911,41
+XPEL,Address for XPEL,Description for XPEL,1915,98
+Walkers,Address for Walkers,Description for Walkers,1999,82
+Mamaearth,Address for Mamaearth,Description for Mamaearth,1956,43
+Nescafe ,Address for Nescafe ,Description for Nescafe ,2014,21
+Pure,Address for Pure,Description for Pure,1973,44
+Embark,Address for Embark,Description for Embark,1963,8
+Yummiez,Address for Yummiez,Description for Yummiez,1981,67
+Paaka,Address for Paaka,Description for Paaka,1994,62
+Sundrop,Address for Sundrop,Description for Sundrop,1945,33
+Emperia,Address for Emperia,Description for Emperia,2020,66
+Nirapara,Address for Nirapara,Description for Nirapara,2017,0
+SDA PAPPADS,Address for SDA PAPPADS,Description for SDA PAPPADS,1945,98
+MilkLane,Address for MilkLane,Description for MilkLane,1937,87
+Bauli,Address for Bauli,Description for Bauli,1981,7
+Braun,Address for Braun,Description for Braun,1928,14
+FAST&UP,Address for FAST&UP,Description for FAST&UP,1926,19
+Udupi Ruchi,Address for Udupi Ruchi,Description for Udupi Ruchi,1972,27
+Mirabelle,Address for Mirabelle,Description for Mirabelle,2013,54
+Fragata,Address for Fragata,Description for Fragata,1942,23
+Open Secret,Address for Open Secret,Description for Open Secret,1958,13
+Glow & Lovely,Address for Glow & Lovely,Description for Glow & Lovely,1917,77
+Nimwash,Address for Nimwash,Description for Nimwash,1996,21
+Close Up,Address for Close Up,Description for Close Up,1960,8
+Go ,Address for Go ,Description for Go ,1911,8
+Kitchen Essentials,Address for Kitchen Essentials,Description for Kitchen Essentials,1968,92
+Set Wet Studio X,Address for Set Wet Studio X,Description for Set Wet Studio X,2017,14
+Globus Naturals,Address for Globus Naturals,Description for Globus Naturals,1964,48
+Dr. Oetker,Address for Dr. Oetker,Description for Dr. Oetker,1978,90
+Clenz U,Address for Clenz U,Description for Clenz U,1956,40
+&Stirred,Address for &Stirred,Description for &Stirred,1904,51
+Deli Sun,Address for Deli Sun,Description for Deli Sun,1969,11
+Wingreens Farms,Address for Wingreens Farms,Description for Wingreens Farms,1915,17
+Elephant ,Address for Elephant ,Description for Elephant ,1932,84
+Care,Address for Care,Description for Care,1921,21
+Nyassa,Address for Nyassa,Description for Nyassa,1976,98
+Cavins,Address for Cavins,Description for Cavins,1959,99
+Frosch,Address for Frosch,Description for Frosch,1987,31
+Revlon,Address for Revlon,Description for Revlon,2000,50
+Comfy Snug Fit,Address for Comfy Snug Fit,Description for Comfy Snug Fit,2007,56
+Protinex ,Address for Protinex ,Description for Protinex ,1973,23
+Shankara,Address for Shankara,Description for Shankara,2019,48
+TRESemme,Address for TRESemme,Description for TRESemme,2014,7
+Hawkins,Address for Hawkins,Description for Hawkins,1937,39
+Lux,Address for Lux,Description for Lux,1941,53
+Baygon,Address for Baygon,Description for Baygon,1980,48
+Organica,Address for Organica,Description for Organica,1973,4
+Maxcare,Address for Maxcare,Description for Maxcare,1937,40
+Cinthol,Address for Cinthol,Description for Cinthol,1955,24
+REGENCY,Address for REGENCY,Description for REGENCY,1977,52
+Bvlgari,Address for Bvlgari,Description for Bvlgari,1909,9
+Mojo Bar,Address for Mojo Bar,Description for Mojo Bar,1951,69
+NutraHi,Address for NutraHi,Description for NutraHi,1976,35
+Shri & Sam,Address for Shri & Sam,Description for Shri & Sam,1917,87
+VAHDAM,Address for VAHDAM,Description for VAHDAM,1928,22
+Cadbury Fuse,Address for Cadbury Fuse,Description for Cadbury Fuse,1916,39
+The Man Company,Address for The Man Company,Description for The Man Company,2016,38
+Entree,Address for Entree,Description for Entree,1978,87
+Vaseline,Address for Vaseline,Description for Vaseline,2017,72
+Quaker,Address for Quaker,Description for Quaker,1977,72
+Ravi,Address for Ravi,Description for Ravi,1971,39
+Srushti Gold,Address for Srushti Gold,Description for Srushti Gold,1926,72
+The Nibble Box,Address for The Nibble Box,Description for The Nibble Box,2019,43
+Opex,Address for Opex,Description for Opex,1967,62
+Serapheena,Address for Serapheena,Description for Serapheena,1959,51
+Carolina Herrera ,Address for Carolina Herrera ,Description for Carolina Herrera ,1968,31
+LetsShave,Address for LetsShave,Description for LetsShave,1961,47
+Vega,Address for Vega,Description for Vega,1956,22
+Police,Address for Police,Description for Police,1995,53
+Lever Ayush,Address for Lever Ayush,Description for Lever Ayush,1962,82
+Spinz,Address for Spinz,Description for Spinz,1987,29
+Bella,Address for Bella,Description for Bella,1947,82
+Nature's Pick ,Address for Nature's Pick ,Description for Nature's Pick ,2008,22
+Wow Skin Science,Address for Wow Skin Science,Description for Wow Skin Science,2022,88
+Cesar,Address for Cesar,Description for Cesar,1982,88
+Max Health ,Address for Max Health ,Description for Max Health ,1946,46
+Monsoon Harvest,Address for Monsoon Harvest,Description for Monsoon Harvest,1975,55
+Adithya,Address for Adithya,Description for Adithya,1969,24
+Playboy,Address for Playboy,Description for Playboy,1975,13
+Mangaldeep,Address for Mangaldeep,Description for Mangaldeep,1950,68
+Purepet,Address for Purepet,Description for Purepet,1984,56
+Sangam Sweets,Address for Sangam Sweets,Description for Sangam Sweets,1914,68
+Anatomicals,Address for Anatomicals,Description for Anatomicals,2007,80
+Kesh King,Address for Kesh King,Description for Kesh King,1982,85
+D-Alive,Address for D-Alive,Description for D-Alive,1998,14
+Polyset,Address for Polyset,Description for Polyset,2020,89
+Paw Paw,Address for Paw Paw,Description for Paw Paw,2016,87
+Corelle,Address for Corelle,Description for Corelle,1966,22
+Fini,Address for Fini,Description for Fini,1934,50
+Balaji foods,Address for Balaji foods,Description for Balaji foods,2019,78
+Sugarlite,Address for Sugarlite,Description for Sugarlite,1942,94
+Parry's,Address for Parry's,Description for Parry's,1921,74
+Grocery Farm,Address for Grocery Farm,Description for Grocery Farm,1966,35
+HappyChef,Address for HappyChef,Description for HappyChef,1993,10
+Oral-B,Address for Oral-B,Description for Oral-B,1916,45
+Winkies,Address for Winkies,Description for Winkies,1995,20
+Peacock ,Address for Peacock ,Description for Peacock ,1982,72
+Amrutanjan,Address for Amrutanjan,Description for Amrutanjan,1912,49
+The Whole Truth,Address for The Whole Truth,Description for The Whole Truth,1920,38
+Jagdamba,Address for Jagdamba,Description for Jagdamba,1944,30
+Prabhat,Address for Prabhat,Description for Prabhat,2022,87
+Porna,Address for Porna,Description for Porna,1999,35
+Man Arden,Address for Man Arden,Description for Man Arden,1973,5
+Parachute Advansed,Address for Parachute Advansed,Description for Parachute Advansed,1934,28
+e-millet,Address for e-millet,Description for e-millet,1944,94
+KNM,Address for KNM,Description for KNM,1995,75
+Paree Pariz,Address for Paree Pariz,Description for Paree Pariz,2015,36
+Cartini by Godrej,Address for Cartini by Godrej,Description for Cartini by Godrej,1975,68
+Savlon,Address for Savlon,Description for Savlon,1972,15
+Jabsons,Address for Jabsons,Description for Jabsons,1933,71
+Oxy Life,Address for Oxy Life,Description for Oxy Life,1914,63
+Storia,Address for Storia,Description for Storia,1932,64
+Twinings,Address for Twinings,Description for Twinings,1914,39
+Biocare ,Address for Biocare ,Description for Biocare ,1986,85
+Glass Ideas ,Address for Glass Ideas ,Description for Glass Ideas ,1903,7
+Lotus Organics+,Address for Lotus Organics+,Description for Lotus Organics+,1947,87
+Woh Hup,Address for Woh Hup,Description for Woh Hup,1908,73
+Ela,Address for Ela,Description for Ela,1943,44
+Ruchi magic,Address for Ruchi magic,Description for Ruchi magic,2007,52
+Ravi Agencies,Address for Ravi Agencies,Description for Ravi Agencies,2005,89
+Daadis ,Address for Daadis ,Description for Daadis ,1928,97
+Niine,Address for Niine,Description for Niine,1935,39
+Licious,Address for Licious,Description for Licious,1976,27
+Vinayak,Address for Vinayak,Description for Vinayak,1961,90
+Sterling,Address for Sterling,Description for Sterling,2014,79
+Arya Organic,Address for Arya Organic,Description for Arya Organic,1981,2
+Wonder,Address for Wonder,Description for Wonder,1996,9
+Continent Spice Khadi,Address for Continent Spice Khadi,Description for Continent Spice Khadi,1972,45
+Nippo,Address for Nippo,Description for Nippo,1980,38
+Saaj,Address for Saaj,Description for Saaj,1937,78
+Cadbury Temptations,Address for Cadbury Temptations,Description for Cadbury Temptations,1969,51
+Verage,Address for Verage,Description for Verage,1995,42
+Godya,Address for Godya,Description for Godya,1968,44
+Kolan,Address for Kolan,Description for Kolan,1911,56
+Bacto-V,Address for Bacto-V,Description for Bacto-V,2011,6
+Snickers,Address for Snickers,Description for Snickers,1964,9
+Streax,Address for Streax,Description for Streax,2019,58
+BB Royal Organic,Address for BB Royal Organic,Description for BB Royal Organic,2020,27
+Krazy Lines,Address for Krazy Lines,Description for Krazy Lines,1970,86
+Nivea Men,Address for Nivea Men,Description for Nivea Men,1973,47
+Yellow Spark,Address for Yellow Spark,Description for Yellow Spark,1905,21
+Banjara's,Address for Banjara's,Description for Banjara's,1909,39
+BHUIRA ,Address for BHUIRA ,Description for BHUIRA ,2021,87
+Bharath Brand,Address for Bharath Brand,Description for Bharath Brand,1997,9
+Chiko,Address for Chiko,Description for Chiko,1959,94
+Akshara Herbals,Address for Akshara Herbals,Description for Akshara Herbals,2003,50
+Ferrari ,Address for Ferrari ,Description for Ferrari ,1951,24
+Mothers Recipe,Address for Mothers Recipe,Description for Mothers Recipe,1998,37
+Wonderchef,Address for Wonderchef,Description for Wonderchef,1930,12
+Dermi Cool,Address for Dermi Cool,Description for Dermi Cool,1970,61
+WhyFryy,Address for WhyFryy,Description for WhyFryy,1959,65
+Wrigleys,Address for Wrigleys,Description for Wrigleys,1921,56
+Gatorade,Address for Gatorade,Description for Gatorade,2004,27
+Ajax,Address for Ajax,Description for Ajax,1927,12
+Jawai,Address for Jawai,Description for Jawai,1920,27
+CCDS,Address for CCDS,Description for CCDS,1907,77
+Aps Cosmetofood,Address for Aps Cosmetofood,Description for Aps Cosmetofood,1942,98
+Mamypoko,Address for Mamypoko,Description for Mamypoko,1926,93
+Berger BreatheEasy,Address for Berger BreatheEasy,Description for Berger BreatheEasy,1976,31
+Bblunt,Address for Bblunt,Description for Bblunt,1908,48
+Pahal,Address for Pahal,Description for Pahal,1985,59
+JK,Address for JK,Description for JK,1966,35
+Rexona,Address for Rexona,Description for Rexona,2000,86
+Killi,Address for Killi,Description for Killi,1932,44
+Schogetten,Address for Schogetten,Description for Schogetten,2004,25
+Chocoliebe,Address for Chocoliebe,Description for Chocoliebe,1997,7
+Asahikasei,Address for Asahikasei,Description for Asahikasei,1911,17
+Rostaa,Address for Rostaa,Description for Rostaa,1976,36
+Greenberry Organics,Address for Greenberry Organics,Description for Greenberry Organics,1968,78
+Cycle,Address for Cycle,Description for Cycle,1907,73
+Ezee Alka,Address for Ezee Alka,Description for Ezee Alka,1995,58
+Boroplus,Address for Boroplus,Description for Boroplus,1981,40
+Blue heaven,Address for Blue heaven,Description for Blue heaven,1949,79
+Orbit,Address for Orbit,Description for Orbit,1915,83
+Olicoop,Address for Olicoop,Description for Olicoop,2013,24
+Yoo Yee,Address for Yoo Yee,Description for Yoo Yee,1959,17
+Nourish Organics,Address for Nourish Organics,Description for Nourish Organics,1991,45
+Herbal Hills,Address for Herbal Hills,Description for Herbal Hills,1960,32
+Trident,Address for Trident,Description for Trident,1953,57
+Gomutra,Address for Gomutra,Description for Gomutra,2004,42
+Aveeno,Address for Aveeno,Description for Aveeno,1994,57
+Aagam,Address for Aagam,Description for Aagam,1992,21
+Galaxy,Address for Galaxy,Description for Galaxy,1965,50
+Singh Styled,Address for Singh Styled,Description for Singh Styled,1919,70
+Voila,Address for Voila,Description for Voila,1946,5
+Mr. Makhana,Address for Mr. Makhana,Description for Mr. Makhana,1902,96
+Seven,Address for Seven,Description for Seven,2011,87
+Multix,Address for Multix,Description for Multix,1922,23
+iD Fresho,Address for iD Fresho,Description for iD Fresho,1952,69
+Karma Kettle,Address for Karma Kettle,Description for Karma Kettle,2020,70
+Palmer's,Address for Palmer's,Description for Palmer's,1906,51
+St. Dalfour,Address for St. Dalfour,Description for St. Dalfour,1996,43
+Glucon-D,Address for Glucon-D,Description for Glucon-D,2011,36
+Befikar,Address for Befikar,Description for Befikar,1982,7
+Lifree,Address for Lifree,Description for Lifree,2008,7
+ChefBoss,Address for ChefBoss,Description for ChefBoss,1915,20
+SHAMROCK,Address for SHAMROCK,Description for SHAMROCK,2005,7
+Jolly Rancher,Address for Jolly Rancher,Description for Jolly Rancher,1992,2
+Florsafe +,Address for Florsafe +,Description for Florsafe +,1974,38
+Globus,Address for Globus,Description for Globus,1912,46
+Abbies,Address for Abbies,Description for Abbies,1949,97
+Crystal,Address for Crystal,Description for Crystal,1979,27
+Fresho Signature,Address for Fresho Signature,Description for Fresho Signature,1985,70
+Home Puff,Address for Home Puff,Description for Home Puff,1967,21
+Just Herbs,Address for Just Herbs,Description for Just Herbs,1901,24
+Mystique,Address for Mystique,Description for Mystique,1982,80
+Sanketi Adukale,Address for Sanketi Adukale,Description for Sanketi Adukale,1932,71
+Smart Home,Address for Smart Home,Description for Smart Home,1998,94
+Goli Soda,Address for Goli Soda,Description for Goli Soda,1972,6
+Lindberg,Address for Lindberg,Description for Lindberg,1943,16
+Milltec,Address for Milltec,Description for Milltec,1924,15
+Fair & Lovely ,Address for Fair & Lovely ,Description for Fair & Lovely ,1961,13
+Clinic Plus,Address for Clinic Plus,Description for Clinic Plus,1967,46
+Aramusk,Address for Aramusk,Description for Aramusk,1935,84
+Sri Sri Tattva,Address for Sri Sri Tattva,Description for Sri Sri Tattva,1950,31
+Green apple,Address for Green apple,Description for Green apple,1916,34
+Germisol,Address for Germisol,Description for Germisol,1976,9
+Dr. Morepen,Address for Dr. Morepen,Description for Dr. Morepen,1934,70
+Cocoland,Address for Cocoland,Description for Cocoland,1925,69
+Vivel,Address for Vivel,Description for Vivel,1993,0
+Mortein,Address for Mortein,Description for Mortein,2021,5
+Munchilicious Granola ,Address for Munchilicious Granola ,Description for Munchilicious Granola ,1967,87
+Tata Tea Chakra,Address for Tata Tea Chakra,Description for Tata Tea Chakra,1928,20
+Jabson,Address for Jabson,Description for Jabson,2004,80
+Himalaya Pet Care,Address for Himalaya Pet Care,Description for Himalaya Pet Care,1985,78
+Nycil,Address for Nycil,Description for Nycil,1956,46
+Iceland,Address for Iceland,Description for Iceland,1951,45
+Lovely Bake Studio,Address for Lovely Bake Studio,Description for Lovely Bake Studio,1964,26
+Morpheme,Address for Morpheme,Description for Morpheme,1960,31
+Spray Lite,Address for Spray Lite,Description for Spray Lite,1928,65
+Natures Plus,Address for Natures Plus,Description for Natures Plus,1902,83
+Matilde Vicenzi,Address for Matilde Vicenzi,Description for Matilde Vicenzi,2007,76
+Margo,Address for Margo,Description for Margo,1955,89
+Soultree Ayurvedic,Address for Soultree Ayurvedic,Description for Soultree Ayurvedic,2005,9
+Dana,Address for Dana,Description for Dana,2017,58
+Sol,Address for Sol,Description for Sol,2013,67
+Exit No Entry,Address for Exit No Entry,Description for Exit No Entry,1973,26
+Master,Address for Master,Description for Master,1984,85
+mother dairy,Address for mother dairy,Description for mother dairy,1912,96
+Roasty Tasty,Address for Roasty Tasty,Description for Roasty Tasty,1944,58
+Spring Fest,Address for Spring Fest,Description for Spring Fest,1907,79
+Falcon,Address for Falcon,Description for Falcon,2002,63
+Veekes & Company,Address for Veekes & Company,Description for Veekes & Company,1913,20
+LuvIt,Address for LuvIt,Description for LuvIt,2001,89
+Ocean,Address for Ocean,Description for Ocean,1992,68
+Namhya,Address for Namhya,Description for Namhya,1957,78
+QIPS,Address for QIPS,Description for QIPS,2015,51
+Faber castell,Address for Faber castell,Description for Faber castell,2018,50
+Beardo,Address for Beardo,Description for Beardo,2013,65
+Nutro,Address for Nutro,Description for Nutro,1925,42
+Arata Zero Chemicals,Address for Arata Zero Chemicals,Description for Arata Zero Chemicals,1912,20
+Heidi,Address for Heidi,Description for Heidi,1992,41
+Vauva,Address for Vauva,Description for Vauva,1993,3
+Nourish You,Address for Nourish You,Description for Nourish You,1930,37
+Morning Fresh,Address for Morning Fresh,Description for Morning Fresh,1960,18
+Grand Sweets,Address for Grand Sweets,Description for Grand Sweets,1932,1
+Pet king,Address for Pet king,Description for Pet king,2012,5
+Dr. Vaidya's,Address for Dr. Vaidya's,Description for Dr. Vaidya's,1936,66
+Pickwick ,Address for Pickwick ,Description for Pickwick ,1998,29
+Ice Berg,Address for Ice Berg,Description for Ice Berg,1912,26
+Lays,Address for Lays,Description for Lays,1933,17
+Kingfisher,Address for Kingfisher,Description for Kingfisher,1904,37
+GOELD,Address for GOELD,Description for GOELD,1968,66
+SBE,Address for SBE,Description for SBE,2017,36
+Raja,Address for Raja,Description for Raja,1998,73
+Olitalia,Address for Olitalia,Description for Olitalia,1956,20
+Miss Claire,Address for Miss Claire,Description for Miss Claire,1906,4
+MOM,Address for MOM,Description for MOM,2012,48
+La Vieja Fabrica,Address for La Vieja Fabrica,Description for La Vieja Fabrica,1941,94
+Nectar Valley,Address for Nectar Valley,Description for Nectar Valley,1957,61
+Harin,Address for Harin,Description for Harin,1995,92
+Nihar,Address for Nihar,Description for Nihar,1973,22
+Pillsbury,Address for Pillsbury,Description for Pillsbury,1994,27
+Kokos Natural,Address for Kokos Natural,Description for Kokos Natural,1921,84
+Prozo Plus,Address for Prozo Plus,Description for Prozo Plus,1999,28
+Boost,Address for Boost,Description for Boost,1999,88
+FAIR AND HANDSOME,Address for FAIR AND HANDSOME,Description for FAIR AND HANDSOME,1963,58
+Krack,Address for Krack,Description for Krack,1934,25
+Agnesi,Address for Agnesi,Description for Agnesi,1949,57
+Palmpure,Address for Palmpure,Description for Palmpure,2002,76
+Stationari+,Address for Stationari+,Description for Stationari+,2011,55
+Tide,Address for Tide,Description for Tide,1911,81
+Syska,Address for Syska,Description for Syska,1983,3
+Superware,Address for Superware,Description for Superware,1927,93
+BENGAMESE,Address for BENGAMESE,Description for BENGAMESE,1926,1
+Lotus,Address for Lotus,Description for Lotus,1978,34
+Brewhouse Tea Brewing Co.,Address for Brewhouse Tea Brewing Co.,Description for Brewhouse Tea Brewing Co.,1933,58
+Yashoda ,Address for Yashoda ,Description for Yashoda ,1946,56
+KM,Address for KM,Description for KM,2008,54
+Chicnutrix,Address for Chicnutrix,Description for Chicnutrix,1951,54
+Cheetos,Address for Cheetos,Description for Cheetos,1947,41
+O,Address for O,Description for O,1993,63
+American Pancake Co.,Address for American Pancake Co.,Description for American Pancake Co.,1960,89
+Nataraj,Address for Nataraj,Description for Nataraj,1981,35
+Sunpure ,Address for Sunpure ,Description for Sunpure ,1925,73
+Pril,Address for Pril,Description for Pril,1969,30
+Kurkure,Address for Kurkure,Description for Kurkure,2019,13
+The August Co.,Address for The August Co.,Description for The August Co.,1921,57
+DaVinci Gourmet,Address for DaVinci Gourmet,Description for DaVinci Gourmet,1926,38
+Azad ,Address for Azad ,Description for Azad ,1995,62
+Sakthi,Address for Sakthi,Description for Sakthi,1989,3
+Langnese,Address for Langnese,Description for Langnese,1963,0
+Lipton ,Address for Lipton ,Description for Lipton ,1994,11
+Grami Superfoods,Address for Grami Superfoods,Description for Grami Superfoods,1959,34
+Soogo,Address for Soogo,Description for Soogo,1901,87
+Simpkins ,Address for Simpkins ,Description for Simpkins ,1927,68
+Red indian,Address for Red indian,Description for Red indian,2016,24
+Picnic,Address for Picnic,Description for Picnic,1905,93
+Vicks,Address for Vicks,Description for Vicks,1936,9
+Wonder Fresh ,Address for Wonder Fresh ,Description for Wonder Fresh ,1981,47
+Engine,Address for Engine,Description for Engine,1903,45
+Sidapur,Address for Sidapur,Description for Sidapur,1985,16
+Bigen,Address for Bigen,Description for Bigen,1982,62
+Nilons,Address for Nilons,Description for Nilons,1953,95
+Mothers Maid,Address for Mothers Maid,Description for Mothers Maid,1962,70
+Oddy ,Address for Oddy ,Description for Oddy ,2006,48
+Flyberry,Address for Flyberry,Description for Flyberry,1926,94
+Under The Mango Tree,Address for Under The Mango Tree,Description for Under The Mango Tree,1950,15
+Callesta,Address for Callesta,Description for Callesta,1955,79
+Dezire,Address for Dezire,Description for Dezire,1993,85
+Cardia,Address for Cardia,Description for Cardia,1908,42
+Neesh,Address for Neesh,Description for Neesh,1938,56
+Luvlap,Address for Luvlap,Description for Luvlap,1988,67
+Delight Nuts,Address for Delight Nuts,Description for Delight Nuts,1963,69
+Fresho Organic,Address for Fresho Organic,Description for Fresho Organic,1988,80
+Heineken,Address for Heineken,Description for Heineken,1925,0
+Barber's Club,Address for Barber's Club,Description for Barber's Club,2012,38
+IAMS,Address for IAMS,Description for IAMS,1963,71
+Kinder Joy,Address for Kinder Joy,Description for Kinder Joy,1942,93
+Narasus,Address for Narasus,Description for Narasus,2016,48
+Subicsha,Address for Subicsha,Description for Subicsha,1977,97
+Cookie Man,Address for Cookie Man,Description for Cookie Man,1913,2
+Threptin,Address for Threptin,Description for Threptin,2001,65
+Black & Green,Address for Black & Green,Description for Black & Green,1959,68
+Qraa Men,Address for Qraa Men,Description for Qraa Men,1994,67
+LiL'Goodness,Address for LiL'Goodness,Description for LiL'Goodness,1981,6
+Fanta,Address for Fanta,Description for Fanta,2010,90
+Nissin Food,Address for Nissin Food,Description for Nissin Food,1973,76
+Kare Med,Address for Kare Med,Description for Kare Med,1934,57
+Instafeast,Address for Instafeast,Description for Instafeast,2017,26
+Papergrid,Address for Papergrid,Description for Papergrid,1951,9
+ECO365,Address for ECO365,Description for ECO365,1956,17
+Yagna,Address for Yagna,Description for Yagna,1968,50
+Yum Yum,Address for Yum Yum,Description for Yum Yum,1939,88
+SOVI,Address for SOVI,Description for SOVI,1942,32
+BB Home Herbal,Address for BB Home Herbal,Description for BB Home Herbal,1914,26
+Jersey,Address for Jersey,Description for Jersey,1949,28
+Vilvaa,Address for Vilvaa,Description for Vilvaa,1927,93
+Sri Swastik,Address for Sri Swastik,Description for Sri Swastik,1999,13
+Amul Slim,Address for Amul Slim,Description for Amul Slim,1996,2
+Mr. Gold,Address for Mr. Gold,Description for Mr. Gold,2019,93
+Aptamil,Address for Aptamil,Description for Aptamil,1910,63
+Gourmets Delite ,Address for Gourmets Delite ,Description for Gourmets Delite ,1912,18
+Ujala,Address for Ujala,Description for Ujala,1918,55
+HIT,Address for HIT,Description for HIT,1950,90
+Cocoacraft,Address for Cocoacraft,Description for Cocoacraft,1966,17
+JK Copier,Address for JK Copier,Description for JK Copier,1965,68
+LAXMI NARAYAN,Address for LAXMI NARAYAN,Description for LAXMI NARAYAN,1935,52
+Citrus Plus,Address for Citrus Plus,Description for Citrus Plus,1936,18
+Sakurafresh,Address for Sakurafresh,Description for Sakurafresh,1922,59
+Jai Veer,Address for Jai Veer,Description for Jai Veer,1958,66
+Harmony,Address for Harmony,Description for Harmony,1991,66
+Brown & Polson,Address for Brown & Polson,Description for Brown & Polson,1904,47
+Miller,Address for Miller,Description for Miller,1957,30
+Super Smelly,Address for Super Smelly,Description for Super Smelly,2018,85
+Trucrose,Address for Trucrose,Description for Trucrose,1932,42
+Beelicious ,Address for Beelicious ,Description for Beelicious ,1945,13
+Wai Wai,Address for Wai Wai,Description for Wai Wai,1929,96
+Amrutha,Address for Amrutha,Description for Amrutha,1948,42
+TGL Co.,Address for TGL Co.,Description for TGL Co.,1987,26
+Ambriona,Address for Ambriona,Description for Ambriona,1918,53
+Odomos,Address for Odomos,Description for Odomos,2004,45
+Om Bhakti,Address for Om Bhakti,Description for Om Bhakti,1927,22
+Oasis,Address for Oasis,Description for Oasis,2021,54
+LISO,Address for LISO,Description for LISO,1959,64
+Hamdard,Address for Hamdard,Description for Hamdard,1928,90
+Dae Chun Gim,Address for Dae Chun Gim,Description for Dae Chun Gim,1941,94
+Samvruddhi,Address for Samvruddhi,Description for Samvruddhi,1987,23
+Sofy,Address for Sofy,Description for Sofy,2006,75
+Dkny,Address for Dkny,Description for Dkny,1927,49
+Nautica,Address for Nautica,Description for Nautica,2021,65
+Feel Fresh,Address for Feel Fresh,Description for Feel Fresh,1948,29
+Hindalco,Address for Hindalco,Description for Hindalco,1997,83
+Ezee ,Address for Ezee ,Description for Ezee ,2009,57
+Fiama Di Wills,Address for Fiama Di Wills,Description for Fiama Di Wills,1958,7
+Dabur Amla,Address for Dabur Amla,Description for Dabur Amla,2006,62
+Evaflor,Address for Evaflor,Description for Evaflor,2005,66
+Smint,Address for Smint,Description for Smint,1912,15
+GOPURAM,Address for GOPURAM,Description for GOPURAM,1992,20
+Riseup,Address for Riseup,Description for Riseup,1957,0
+Nutraj,Address for Nutraj,Description for Nutraj,1920,77
+Zandu,Address for Zandu,Description for Zandu,1938,70
+Maryaj,Address for Maryaj,Description for Maryaj,1968,38
+Tasty Fresh,Address for Tasty Fresh,Description for Tasty Fresh,1919,4
+Beverly Hills Polo Club,Address for Beverly Hills Polo Club,Description for Beverly Hills Polo Club,1939,83
+Catche,Address for Catche,Description for Catche,1936,71
+Tri-Activ,Address for Tri-Activ,Description for Tri-Activ,1983,79
+Ammi Samayal,Address for Ammi Samayal,Description for Ammi Samayal,1931,5
+Happydent ,Address for Happydent ,Description for Happydent ,1911,59
+Bisleri ,Address for Bisleri ,Description for Bisleri ,1915,61
+Maltova,Address for Maltova,Description for Maltova,1919,44
+Mom's InstaCook,Address for Mom's InstaCook,Description for Mom's InstaCook,1978,33
+Sowbhagya foods,Address for Sowbhagya foods,Description for Sowbhagya foods,1957,97
+Morelight,Address for Morelight,Description for Morelight,1972,7
+Mr Muscle,Address for Mr Muscle,Description for Mr Muscle,2004,52
+Aquawhite,Address for Aquawhite,Description for Aquawhite,1915,71
+Freshee,Address for Freshee,Description for Freshee,1941,50
+Delishh,Address for Delishh,Description for Delishh,1991,25
+Choc Coin,Address for Choc Coin,Description for Choc Coin,1946,38
+Soyvita,Address for Soyvita,Description for Soyvita,1924,68
+BIKA,Address for BIKA,Description for BIKA,1969,97
+iD Fresh,Address for iD Fresh,Description for iD Fresh,1905,49
+Plum,Address for Plum,Description for Plum,1991,24
+Fa,Address for Fa,Description for Fa,1923,25
+Briyas,Address for Briyas,Description for Briyas,1939,22
+Tropicana,Address for Tropicana,Description for Tropicana,2005,58
+TATA Q,Address for TATA Q,Description for TATA Q,2020,72
+Shankar Namkeen,Address for Shankar Namkeen,Description for Shankar Namkeen,1944,75
+Akar,Address for Akar,Description for Akar,1945,69
+Mapro,Address for Mapro,Description for Mapro,1983,81
+Live Yum,Address for Live Yum,Description for Live Yum,1900,23
+Vijay,Address for Vijay,Description for Vijay,1973,19
+Eastern jackfruit365,Address for Eastern jackfruit365,Description for Eastern jackfruit365,1967,77
+Toblerone,Address for Toblerone,Description for Toblerone,1917,38
+Mrs Bector'S Cremica,Address for Mrs Bector'S Cremica,Description for Mrs Bector'S Cremica,1966,10
+Marshmelts,Address for Marshmelts,Description for Marshmelts,1900,85
+Hoegaarden 0.0,Address for Hoegaarden 0.0,Description for Hoegaarden 0.0,1957,9
+EASY COFFEE,Address for EASY COFFEE,Description for EASY COFFEE,1912,11
+Raw Pressery,Address for Raw Pressery,Description for Raw Pressery,1972,54
+Bare Essentials,Address for Bare Essentials,Description for Bare Essentials,1919,86
+Ziva,Address for Ziva,Description for Ziva,1962,84
+Scotchgard,Address for Scotchgard,Description for Scotchgard,1947,71
+Bodygard,Address for Bodygard,Description for Bodygard,2019,33
+India Circus,Address for India Circus,Description for India Circus,1991,78
+Paperkraft,Address for Paperkraft,Description for Paperkraft,1944,2
+Diyaz,Address for Diyaz,Description for Diyaz,1973,3
+Prasuma,Address for Prasuma,Description for Prasuma,2009,76
+Manna Go Grains,Address for Manna Go Grains,Description for Manna Go Grains,1938,91
+PRAVIN MIXBOX,Address for PRAVIN MIXBOX,Description for PRAVIN MIXBOX,1997,3
+Pinnacle,Address for Pinnacle,Description for Pinnacle,1949,91
+NIC,Address for NIC,Description for NIC,1994,83
+Coco Soul,Address for Coco Soul,Description for Coco Soul,1990,53
+Fairkraft Creations,Address for Fairkraft Creations,Description for Fairkraft Creations,1966,66
+Bhikharam chandmal,Address for Bhikharam chandmal,Description for Bhikharam chandmal,1904,5
+Dhampur Green,Address for Dhampur Green,Description for Dhampur Green,1964,67
+Hair & Care,Address for Hair & Care,Description for Hair & Care,1916,70
+All Good Scents,Address for All Good Scents,Description for All Good Scents,1978,94
+Pure Wipes,Address for Pure Wipes,Description for Pure Wipes,1911,22
+Yellow Crumb,Address for Yellow Crumb,Description for Yellow Crumb,1945,31
+HealthChoice,Address for HealthChoice,Description for HealthChoice,2012,6
+Mikado's,Address for Mikado's,Description for Mikado's,1996,24
+Energizer,Address for Energizer,Description for Energizer,2010,66
+Smiley-Quick Dry,Address for Smiley-Quick Dry,Description for Smiley-Quick Dry,2008,47
+The Healthy Cravings Co.,Address for The Healthy Cravings Co.,Description for The Healthy Cravings Co.,1916,94
+Ovaltine,Address for Ovaltine,Description for Ovaltine,1957,54
+Brownie Cottage,Address for Brownie Cottage,Description for Brownie Cottage,1907,1
+Morton,Address for Morton,Description for Morton,1962,70
+Dr. Schar,Address for Dr. Schar,Description for Dr. Schar,1931,44
+Sofia,Address for Sofia,Description for Sofia,1918,8
+Fakira,Address for Fakira,Description for Fakira,2002,73
+Sanitt,Address for Sanitt,Description for Sanitt,1914,53
+Popular Essentials,Address for Popular Essentials,Description for Popular Essentials,1921,64
+Kerala,Address for Kerala,Description for Kerala,1987,28
+Ragu,Address for Ragu,Description for Ragu,1914,6
+Coronation,Address for Coronation,Description for Coronation,1992,94
+Om sri Kar,Address for Om sri Kar,Description for Om sri Kar,1917,93
+Salon,Address for Salon,Description for Salon,1994,10
+HE,Address for HE,Description for HE,1988,12
+Naagin ,Address for Naagin ,Description for Naagin ,1986,30
+Royal Touch,Address for Royal Touch,Description for Royal Touch,1993,18
+Volini,Address for Volini,Description for Volini,2022,89
+Arham,Address for Arham,Description for Arham,1931,32
+Forgreen,Address for Forgreen,Description for Forgreen,1927,26
+Kwality,Address for Kwality,Description for Kwality,1912,97
+Montanini,Address for Montanini,Description for Montanini,1980,61
+Daarzel,Address for Daarzel,Description for Daarzel,1948,32
+Zermisol,Address for Zermisol,Description for Zermisol,1921,2
+Cadburry,Address for Cadburry,Description for Cadburry,1957,16
+Clear,Address for Clear,Description for Clear,1982,78
+Mothercare ,Address for Mothercare ,Description for Mothercare ,1970,26
+Charmis,Address for Charmis,Description for Charmis,2013,49
+Unity,Address for Unity,Description for Unity,1922,98
+Pediasure,Address for Pediasure,Description for Pediasure,2018,15
+PRO ORGANIC LIFE,Address for PRO ORGANIC LIFE,Description for PRO ORGANIC LIFE,1956,69
+Bonorganik,Address for Bonorganik,Description for Bonorganik,1960,47
+IKO,Address for IKO,Description for IKO,2015,98
+Everteen,Address for Everteen,Description for Everteen,2017,85
+VITRO,Address for VITRO,Description for VITRO,1992,60
+Auravedic,Address for Auravedic,Description for Auravedic,1994,83
+Khadi Meghdooth,Address for Khadi Meghdooth,Description for Khadi Meghdooth,2007,78
+Morisons ,Address for Morisons ,Description for Morisons ,2007,98
+Lehar,Address for Lehar,Description for Lehar,1975,92
+Ants-Duraprot,Address for Ants-Duraprot,Description for Ants-Duraprot,1992,11
+SSCPL HERBALS,Address for SSCPL HERBALS,Description for SSCPL HERBALS,1915,29
+Meatzza,Address for Meatzza,Description for Meatzza,1981,33
+Dip,Address for Dip,Description for Dip,2019,4
+Ponvandu,Address for Ponvandu,Description for Ponvandu,1958,40
+Pez,Address for Pez,Description for Pez,1929,80
+Godrej Nupur,Address for Godrej Nupur,Description for Godrej Nupur,1940,47
+ICare,Address for ICare,Description for ICare,2000,26
+MCaffeine ,Address for MCaffeine ,Description for MCaffeine ,1904,29
+Honeywell,Address for Honeywell,Description for Honeywell,1958,45
+Hunter's Gourmet,Address for Hunter's Gourmet,Description for Hunter's Gourmet,1919,18
+Hershey's Kisses,Address for Hershey's Kisses,Description for Hershey's Kisses,1983,47
+Ujala Supreme,Address for Ujala Supreme,Description for Ujala Supreme,1991,7
+Lee Kum Kee,Address for Lee Kum Kee,Description for Lee Kum Kee,1937,32
+Barbican ,Address for Barbican ,Description for Barbican ,1988,33
+Vitro Naturals ,Address for Vitro Naturals ,Description for Vitro Naturals ,1998,12
+Cook4U,Address for Cook4U,Description for Cook4U,1984,32
+Suryaflame,Address for Suryaflame,Description for Suryaflame,1943,19
+SAFE-KI,Address for SAFE-KI,Description for SAFE-KI,1926,96
+Maya,Address for Maya,Description for Maya,2005,21
+Tang,Address for Tang,Description for Tang,1914,55
+Poop-cee,Address for Poop-cee,Description for Poop-cee,1947,47
+Opera,Address for Opera,Description for Opera,1900,84
+Oxylife,Address for Oxylife,Description for Oxylife,1903,44
+Release on,Address for Release on,Description for Release on,1977,40
+SterloMax,Address for SterloMax,Description for SterloMax,1991,41
+Ojasvita,Address for Ojasvita,Description for Ojasvita,1985,10
+Dabur Babool,Address for Dabur Babool,Description for Dabur Babool,2016,21
+Vwash,Address for Vwash,Description for Vwash,1906,94
+Mangalam,Address for Mangalam,Description for Mangalam,1923,44
+Montex,Address for Montex,Description for Montex,1967,4
+EverEve,Address for EverEve,Description for EverEve,1966,8
+On The Run,Address for On The Run,Description for On The Run,2014,82
+Ice Breakers,Address for Ice Breakers,Description for Ice Breakers,1995,42
+Hankley,Address for Hankley,Description for Hankley,1993,93
+Mondsub,Address for Mondsub,Description for Mondsub,1926,57
+Lal,Address for Lal,Description for Lal,1910,55
+Duncan Hines,Address for Duncan Hines,Description for Duncan Hines,1965,84
+Reynolds,Address for Reynolds,Description for Reynolds,1915,91
+Germi Chek,Address for Germi Chek,Description for Germi Chek,2009,90
+Born Good,Address for Born Good,Description for Born Good,1981,94
+Hamam ,Address for Hamam ,Description for Hamam ,1904,10
+Japanese Choice,Address for Japanese Choice,Description for Japanese Choice,1947,48
+Nicka K,Address for Nicka K,Description for Nicka K,1949,22
+Bibo,Address for Bibo,Description for Bibo,2002,15
+Golden Tips,Address for Golden Tips,Description for Golden Tips,2018,79
+Glow & Handsome,Address for Glow & Handsome,Description for Glow & Handsome,1968,21
+Cremica,Address for Cremica,Description for Cremica,1967,13
+Hart Beat,Address for Hart Beat,Description for Hart Beat,1931,72
+Nutella,Address for Nutella,Description for Nutella,1955,41
+Maybelline New York,Address for Maybelline New York,Description for Maybelline New York,2012,16
+Natures Organic,Address for Natures Organic,Description for Natures Organic,1977,20
+Bentley,Address for Bentley,Description for Bentley,1979,19
+Purple Hippie,Address for Purple Hippie,Description for Purple Hippie,2020,17
+Hintz,Address for Hintz,Description for Hintz,2017,65
+Ulric De Varens,Address for Ulric De Varens,Description for Ulric De Varens,1975,11
+Xishifeng,Address for Xishifeng,Description for Xishifeng,1975,41
+MTR FOODS,Address for MTR FOODS,Description for MTR FOODS,2001,55
+JLT,Address for JLT,Description for JLT,1914,90
+Cherry Blossom,Address for Cherry Blossom,Description for Cherry Blossom,1987,70
+DIVING DUCK,Address for DIVING DUCK,Description for DIVING DUCK,1948,71
+Renew Air,Address for Renew Air,Description for Renew Air,1913,21
+Rica,Address for Rica,Description for Rica,2007,94
+Good Morning,Address for Good Morning,Description for Good Morning,1986,39
+Aura,Address for Aura,Description for Aura,2006,13
+Oriental,Address for Oriental,Description for Oriental,1913,86
+Lune De Miel ,Address for Lune De Miel ,Description for Lune De Miel ,1972,39
+Jivika Naturals,Address for Jivika Naturals,Description for Jivika Naturals,1902,49
+Crispees,Address for Crispees,Description for Crispees,1966,27
+Tree Grab,Address for Tree Grab,Description for Tree Grab,2011,73
+Godrej Proclean,Address for Godrej Proclean,Description for Godrej Proclean,1924,0
+Colourmist,Address for Colourmist,Description for Colourmist,1938,84
+RED LINE,Address for RED LINE,Description for RED LINE,1973,7
+Brasso,Address for Brasso,Description for Brasso,1975,68
+Tedemi,Address for Tedemi,Description for Tedemi,1953,90
+Revive,Address for Revive,Description for Revive,2012,72
+Batiste,Address for Batiste,Description for Batiste,1946,1
+RENUZIT,Address for RENUZIT,Description for RENUZIT,1970,0
+Zazzy,Address for Zazzy,Description for Zazzy,1921,4
+AMADO,Address for AMADO,Description for AMADO,1970,81
+Apex,Address for Apex,Description for Apex,1975,30
+Unique Arts & Interiors,Address for Unique Arts & Interiors,Description for Unique Arts & Interiors,1983,33
+Cadbury BournVita,Address for Cadbury BournVita,Description for Cadbury BournVita,1910,28
+Neo foods ,Address for Neo foods ,Description for Neo foods ,1917,62
+Jayanthi Coffee,Address for Jayanthi Coffee,Description for Jayanthi Coffee,1902,74
+Corniche,Address for Corniche,Description for Corniche,1914,66
+Dermal,Address for Dermal,Description for Dermal,2017,13
+bigbasket,Address for bigbasket,Description for bigbasket,2010,88
+Tata Salt,Address for Tata Salt,Description for Tata Salt,1979,25
+IGLOO,Address for IGLOO,Description for IGLOO,1919,62
+Isvaryam,Address for Isvaryam,Description for Isvaryam,1908,28
+OGMO,Address for OGMO,Description for OGMO,2015,61
+Nestle Koko Krunch,Address for Nestle Koko Krunch,Description for Nestle Koko Krunch,1997,2
+The Earth Reserve,Address for The Earth Reserve,Description for The Earth Reserve,1915,12
+Just A Minute,Address for Just A Minute,Description for Just A Minute,1912,10
+Spice Liquid,Address for Spice Liquid,Description for Spice Liquid,2014,62
+Anandam,Address for Anandam,Description for Anandam,1926,5
+Orion,Address for Orion,Description for Orion,2016,67
+Remy Marquis,Address for Remy Marquis,Description for Remy Marquis,1948,76
+Sanjeev Kapoor,Address for Sanjeev Kapoor,Description for Sanjeev Kapoor,1969,91
+Laxminarayan,Address for Laxminarayan,Description for Laxminarayan,1959,3
+Hairmac,Address for Hairmac,Description for Hairmac,1993,89
+Promen,Address for Promen,Description for Promen,1973,26
+All That Dips,Address for All That Dips,Description for All That Dips,1982,5
+Pony Effect,Address for Pony Effect,Description for Pony Effect,1951,0
+Foodecor,Address for Foodecor,Description for Foodecor,1996,62
+Tata ,Address for Tata ,Description for Tata ,1931,26
+Candid,Address for Candid,Description for Candid,1927,9
+Good Luck,Address for Good Luck,Description for Good Luck,1969,39
+Terra,Address for Terra,Description for Terra,1927,65
+Himani,Address for Himani,Description for Himani,1969,19
+Jacker ,Address for Jacker ,Description for Jacker ,1963,59
+Monini,Address for Monini,Description for Monini,1967,56
+Kims,Address for Kims,Description for Kims,2017,19
+Strawberry,Address for Strawberry,Description for Strawberry,1924,24
+Relispray,Address for Relispray,Description for Relispray,2015,29
+Oreo,Address for Oreo,Description for Oreo,1936,5
+Silk,Address for Silk,Description for Silk,1909,14
+Cadbury Gems,Address for Cadbury Gems,Description for Cadbury Gems,1969,15
+Fantastic,Address for Fantastic,Description for Fantastic,1920,29
+Mr South,Address for Mr South,Description for Mr South,2001,46
+Kawach,Address for Kawach,Description for Kawach,1939,0
+Veg Wash +,Address for Veg Wash +,Description for Veg Wash +,2002,51
+Brother,Address for Brother,Description for Brother,1908,67
+Ensure,Address for Ensure,Description for Ensure,1938,96
+Zevic,Address for Zevic,Description for Zevic,1980,60
+Nimeasy,Address for Nimeasy,Description for Nimeasy,1917,6
+Meixiang,Address for Meixiang,Description for Meixiang,1964,64
+Schweppes,Address for Schweppes,Description for Schweppes,1923,87
+Shree Mahalakshmi ,Address for Shree Mahalakshmi ,Description for Shree Mahalakshmi ,1962,6
+Boing,Address for Boing,Description for Boing,1922,14
+Bon curry ,Address for Bon curry ,Description for Bon curry ,1901,60
+Creme 21,Address for Creme 21,Description for Creme 21,1965,21
+Carefree,Address for Carefree,Description for Carefree,1932,1
+Madilu,Address for Madilu,Description for Madilu,1961,35
+Maxo,Address for Maxo,Description for Maxo,1914,91
+Nestle A+,Address for Nestle A+,Description for Nestle A+,1947,33
+Lapar,Address for Lapar,Description for Lapar,1998,88
+Ruchi,Address for Ruchi,Description for Ruchi,1978,52
+Yongsheng,Address for Yongsheng,Description for Yongsheng,2000,29
+Scalpe Pro,Address for Scalpe Pro,Description for Scalpe Pro,1925,3
+DND,Address for DND,Description for DND,1921,62
+The Kitchen Farms,Address for The Kitchen Farms,Description for The Kitchen Farms,1915,4
+Sunbean  ,Address for Sunbean  ,Description for Sunbean  ,2006,39
+La Costena,Address for La Costena,Description for La Costena,2004,12
+Amulya,Address for Amulya,Description for Amulya,1969,46
+Shakira,Address for Shakira,Description for Shakira,1947,64
+Clean N Fresh,Address for Clean N Fresh,Description for Clean N Fresh,1905,60
+Absorb-It,Address for Absorb-It,Description for Absorb-It,2018,84
+Livon,Address for Livon,Description for Livon,1906,54
+Prozo+,Address for Prozo+,Description for Prozo+,1906,44
+Desi Utthana,Address for Desi Utthana,Description for Desi Utthana,1903,88
+ezy,Address for ezy,Description for ezy,1990,86
+M Stick,Address for M Stick,Description for M Stick,1918,20
+BONGO BHOG,Address for BONGO BHOG,Description for BONGO BHOG,1967,27
+Swaad,Address for Swaad,Description for Swaad,1901,11
+Lijjat,Address for Lijjat,Description for Lijjat,1950,51
+Nisargalaya,Address for Nisargalaya,Description for Nisargalaya,1996,29
+Pukka,Address for Pukka,Description for Pukka,1948,15
+Hi-Fresh,Address for Hi-Fresh,Description for Hi-Fresh,2021,88
+Siang Pure,Address for Siang Pure,Description for Siang Pure,1964,77
+Prowomen,Address for Prowomen,Description for Prowomen,2019,59
+Kasturi,Address for Kasturi,Description for Kasturi,1994,71
+Fng,Address for Fng,Description for Fng,1997,70
+Basso,Address for Basso,Description for Basso,1959,51
+OLIVANA,Address for OLIVANA,Description for OLIVANA,1984,62
+Karkhana,Address for Karkhana,Description for Karkhana,1936,36
+Saafoo,Address for Saafoo,Description for Saafoo,1919,80
+Tropics,Address for Tropics,Description for Tropics,1928,84
+COFFEE JOY,Address for COFFEE JOY,Description for COFFEE JOY,1908,43
+Sakura,Address for Sakura,Description for Sakura,1950,61
+Bergner,Address for Bergner,Description for Bergner,1906,76
+WaghBakri,Address for WaghBakri,Description for WaghBakri,1951,19
+B2B,Address for B2B,Description for B2B,1909,95
+Nature's Treat,Address for Nature's Treat,Description for Nature's Treat,1954,14
+Aerostar,Address for Aerostar,Description for Aerostar,1983,96
+Cute Girl,Address for Cute Girl,Description for Cute Girl,1992,8
+Bhikhaaram Chandmal,Address for Bhikhaaram Chandmal,Description for Bhikhaaram Chandmal,1934,53
+Indus Valley,Address for Indus Valley,Description for Indus Valley,1977,99
+Keratone,Address for Keratone,Description for Keratone,1913,26
+Iodex,Address for Iodex,Description for Iodex,1911,44
+Regal Essence,Address for Regal Essence,Description for Regal Essence,1954,22
+Society,Address for Society,Description for Society,2008,76
+Tofu,Address for Tofu,Description for Tofu,2008,84
+Sloan's,Address for Sloan's,Description for Sloan's,2019,44
+Some More,Address for Some More,Description for Some More,1927,83
+Fox'S,Address for Fox'S,Description for Fox'S,1977,37
+Aristocrat,Address for Aristocrat,Description for Aristocrat,1909,26
+Armaf,Address for Armaf,Description for Armaf,2018,38
+ZEISS,Address for ZEISS,Description for ZEISS,2011,25
+Puro,Address for Puro,Description for Puro,1957,44
+Farmers Family,Address for Farmers Family,Description for Farmers Family,1902,2
+Orysa,Address for Orysa,Description for Orysa,1963,51
+Vochelle,Address for Vochelle,Description for Vochelle,1921,19
+Ancient Living,Address for Ancient Living,Description for Ancient Living,1973,19
+Goodluck,Address for Goodluck,Description for Goodluck,1926,39
+Amrutanjan Fruitnik,Address for Amrutanjan Fruitnik,Description for Amrutanjan Fruitnik,1908,59
+Merit Vco,Address for Merit Vco,Description for Merit Vco,1949,6
+Spc,Address for Spc,Description for Spc,1991,10
+Ayurvedic Technology,Address for Ayurvedic Technology,Description for Ayurvedic Technology,1916,3
+Yoni,Address for Yoni,Description for Yoni,1912,76
+109°F,Address for 109°F,Description for 109°F,1921,16
+National Gardens,Address for National Gardens,Description for National Gardens,1941,39
+Hansaplast,Address for Hansaplast,Description for Hansaplast,1988,10
+Piknik,Address for Piknik,Description for Piknik,1984,48
+OGA,Address for OGA,Description for OGA,1900,43
+mJOY,Address for mJOY,Description for mJOY,1925,88
+EXPLORE CUISINE,Address for EXPLORE CUISINE,Description for EXPLORE CUISINE,1973,78
+Paris,Address for Paris,Description for Paris,1939,18
+Silicone ,Address for Silicone ,Description for Silicone ,2004,78
+NectWorks Honey,Address for NectWorks Honey,Description for NectWorks Honey,1974,21
+Murugesan,Address for Murugesan,Description for Murugesan,1950,30
+Nonandrai Bholanath,Address for Nonandrai Bholanath,Description for Nonandrai Bholanath,1958,16
+Double Pagoda,Address for Double Pagoda,Description for Double Pagoda,2015,14
+Muscleblaze,Address for Muscleblaze,Description for Muscleblaze,1922,79
+Goldrops,Address for Goldrops,Description for Goldrops,2015,25
+4700BC,Address for 4700BC,Description for 4700BC,1942,93
