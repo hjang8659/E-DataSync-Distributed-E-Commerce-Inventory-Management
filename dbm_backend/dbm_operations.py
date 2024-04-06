@@ -1,5 +1,5 @@
 from sqlalchemy import create_engine, text
-from hashing import hash_prod
+from dbm_backend.hashing import hash_prod
 
 class DBMOperations:
     """
