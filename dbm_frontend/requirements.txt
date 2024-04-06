@@ -1,7 +1,0 @@
-altair
-numpy
-pandas
-pydeck
-streamlit
-pymongo
-sqlparse

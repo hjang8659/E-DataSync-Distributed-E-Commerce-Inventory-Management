@@ -1,5 +1,5 @@
 from sqlalchemy import create_engine, text
-from dbm_backend.hashing import hash_prod
+from backend.hashing import hash_supplier
 
 class DBMOperations:
     """
@@ -10,24 +10,24 @@ class DBMOperations:
         """
         Initialize the class with database engines.
         """
-        self.hash = hash_prod()
+        self.hash = hash_supplier()
         self.engines = {
             0: create_engine('mysql+pymysql://myuser3:Dsc!5602023@104.32.175.9:3306/mydatabase'),
             1: create_engine('mysql+pymysql://myuser3:Dsc!5602023@104.32.175.9:3306/mydatabase2')
         }
 
-    def _get_product_name(self, query):
+    def _get_supplier_name(self, query):
         """
-        Helper function to extract product name from query.
+        Helper function to extract supplier name from query.
         """
         return query.split('values')[1].split(')')[0].split('(')[1].split(',')[0]
 
     def insert(self, query):
         """
-        Insert record into hashed database after hashing product name.
+        Insert record into hashed database after hashing supplier name.
         """
-        product_name = self._get_product_name(query)
-        db_index = self.hash.generate_hash(product_name)
+        supplier_name = self._get_supplier_name(query)
+        db_index = self.hash.generate_hash(supplier_name)
         
         with self.engines[db_index].connect() as con:
             try:

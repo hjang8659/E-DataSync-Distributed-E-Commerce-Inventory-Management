@@ -34,4 +34,3 @@ for row in tqdm(rows):
         insert_query = text("INSERT INTO Products VALUES (:product, :category, :sub_category, :brand, :sale_price, :market_price, :type, :rating, :description)")
         con.execute(insert_query, row)
         con.commit()
-

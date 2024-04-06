@@ -18,19 +18,16 @@ class DSCI551Project:
             page_title="Home",
         )
 
-        st.write("### DSCI 551 Project")
+        st.write("### DSCI 551 Project of Group 30")
 
         st.write("# E-DataSync: Distributed E-Commerce Inventory Management")
+        st.image('frontend/display.jpeg')
 
         st.markdown(
             """
             E-DataSync is an innovative E-commerce inventory management system designed
             to enhance communication and interaction between database
-            managers and end users across distributed databases. 
-            The system focuses on three crucial relational tables: products, suppliers, and orders.
-            The initial implementation involves data for the products table, and we are actively
-            working on generating synthetic datasets for suppliers and orders tables, ensuring
-            a comprehensive inventory management solution.
+            managers and end users across distributed databases.
         """
         )
 

@@ -1,10 +1,5 @@
 import streamlit as st
-import subprocess
-import pandas as pd
-from sqlalchemy import create_engine, text
-from sqlalchemy.exc import SQLAlchemyError
-from dbm_backend.dbm_operations import DBMOperations
-import sqlparse
+from backend.dbm_ui_operations import DBMOperations
 
 class DeveloperPage:
     def __init__(self):

@@ -1,10 +1,9 @@
 import pandas as pd
-from dbm_backend.dbm_operations import DBMOperations
-from dbm_frontend.main import DSCI551Project
+from backend.dbm_ui_operations import DBMOperations
+from frontend.main import DSCI551Project
 import sys
 import os
 
-# Ensure that the dbm_frontend can be imported
 project_dir = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(project_dir)
 

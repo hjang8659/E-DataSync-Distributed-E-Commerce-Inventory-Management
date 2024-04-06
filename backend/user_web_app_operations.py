@@ -1,5 +1,5 @@
-from dbm_backend.hashing import hash_prod
-from dbm_backend.dbm_operations import DBMOperations
+from backend.hashing import hash_supplier
+from backend.dbm_ui_operations import DBMOperations
 
 class UserOperations:
     """
@@ -17,7 +17,7 @@ class UserOperations:
         """
         function to insert table_name with attributes.
         """
-        # Insert from opr is only for product name, would need to change it to work with any table
+        # Insert from opr is only for supplier name, would need to change it to work with any table
         str_attributes = ", ".join(attributes)
 
         flag, res = self.opr.insert(f'INSERT INTO {table_name} VALUES {str_attributes}')
@@ -55,21 +55,11 @@ class UserOperations:
         print(flag, res)
         return flag, res
     
-    def deleteOne(self, table_name, conditions):
+    def delete(self, table_name, conditions):
         """
         function to delete 1 row from table_name with conditions. 
         """
         # Delete based on specific primary key, finish
-        str_conditions = ", ".join(conditions)
-        flag, res = self.opr.select(f'DELETE FROM {table_name} WHERE {str_conditions}')
-        print(flag, res)
-        return flag, res
-    
-    def deleteMany(self, table_name, conditions):
-        """
-        function to delete many rows from table_name with conditions. 
-        """
-        
         str_conditions = ", ".join(conditions)
         flag, res = self.opr.select(f'DELETE FROM {table_name} WHERE {str_conditions}')
         print(flag, res)
