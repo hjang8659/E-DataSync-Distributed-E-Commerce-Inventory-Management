@@ -48,7 +48,7 @@ INSERT INTO suppliers (brand_name, address, description, founding_year, num_of_p
 ('Brand45', 'Address45', 'Description45', 2004, 420),
 ('Brand46', 'Address46', 'Description46', 2006, 430);
 
-INSERT INTO products (product_name, category, sub_category, brand_name, sale_price, market_price, type, rating, description) VALUES
+INSERT INTO products (product_name, category, sub_category, brand, sale_price, market_price, type, rating, description) VALUES
 ('Product1', 'Category1', 'SubCategory1', 'Brand1', 100, 120, 'Type1', 4, 'Description1'),
 ('Product2', 'Category2', 'SubCategory2', 'Brand2', 150, 180, 'Type2', 3, 'Description2'),
 ('Product3', 'Category3', 'SubCategory3', 'Brand3', 200, 240, 'Type3', 5, 'Description3'),
@@ -161,7 +161,7 @@ INSERT INTO orders (order_id, date, total_price) VALUES
 (78, '2024-06-18', 15900),
 (79, '2024-06-19', 16100);
 
-INSERT INTO order_details (product_name, order_id) VALUES
+INSERT INTO order_details (product, order_) VALUES
 ('Product1', 1),
 ('Product2', 1),
 ('Product3', 3),
@@ -276,7 +276,7 @@ INSERT INTO suppliers (brand_name, address, description, founding_year, num_of_p
 ('Brand75', 'Address75', 'Description75', 2010, 720);
 
 
-INSERT INTO products (product_name, category, sub_category, brand_name, sale_price, market_price, type, rating, description) VALUES
+INSERT INTO products (product_name, category, sub_category, brand, sale_price, market_price, type, rating, description) VALUES
 ('Product30', 'Category30', 'SubCategory30', 'Brand50', 1800, 2160, 'Type30', 3, 'Description30'),
 ('Product31', 'Category31', 'SubCategory31', 'Brand51', 1850, 2220, 'Type31', 5, 'Description31'),
 ('Product32', 'Category32', 'SubCategory32', 'Brand52', 1900, 2280, 'Type32', 4, 'Description32'),
@@ -310,7 +310,7 @@ INSERT INTO orders (order_id, date, total_price) VALUES
 (97, '2024-07-07', 19700),
 (98, '2024-07-08', 19900);
 
-INSERT INTO order_details (product_name, order_id) VALUES
+INSERT INTO order_details (product, order_) VALUES
 ('Product31', 91),
 ('Product31', 92),
 ('Product32', 93),
