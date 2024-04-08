@@ -64,3 +64,23 @@ class UserOperations:
         flag, res = self.opr.select(f'DELETE FROM {table_name} WHERE {str_conditions}')
         print(flag, res)
         return flag, res
+    
+    def deleteOne(self, table_name, conditions):
+        """
+        function to delete 1 row from table_name with conditions. 
+        """
+        # Delete based on specific primary key, finish
+        str_conditions = ", ".join(conditions)
+        flag, res = self.opr.select(f'DELETE FROM {table_name} WHERE {str_conditions}')
+        print(flag, res)
+        return flag, res
+    
+    def deleteMany(self, table_name, conditions):
+        """
+        function to delete many rows from table_name with conditions. 
+        """
+        
+        str_conditions = ", ".join(conditions)
+        flag, res = self.opr.select(f'DELETE FROM {table_name} WHERE {str_conditions}')
+        print(flag, res)
+        return flag, res
