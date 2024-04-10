@@ -1,6 +1,8 @@
 import streamlit as st
 from backend.user_web_app_operations import UserOperations
 from backend.dbm_ui_operations import DBMOperations
+from streamlit_extras.stateful_button import button
+
 
 opr = DBMOperations()
 
@@ -24,16 +26,7 @@ def insert_action():
     st.header("Insert Actions")
     # Prompt user for table choice
     table_choice = st.radio("Select a table to insert into:", ["", "Suppliers", "Products", "Orders", "Order Details"], index=0)
-    
-    # Display appropriate actions based on table choice
-    if table_choice == "Suppliers":
-        insert_supplier()
-    elif table_choice == "Products":
-        insert_product()
-    elif table_choice == "Orders":
-        insert_order()
-    elif table_choice == "Order Details":
-        insert_order_detail()
+
 
 def update_action():
     st.header("Update Actions")
@@ -43,7 +36,10 @@ def update_action():
     if table_choice != "":
         st.subheader(f"Update {table_choice}")
         # Assuming `opr.select` retrieves data from the database based on the table choice
-        status, table_data = opr.select(f"SELECT * FROM {table_choice.lower()}")
+        if table_choice == "Order Details":
+            status, table_data = opr.select(f"SELECT * FROM order_details")
+        else:
+            status, table_data = opr.select(f"SELECT * FROM {table_choice.lower()}")
         
         if status == 1:  # Check if the query was successful
             st.table(table_data[:5])  # Display only the first 5 rows of data
@@ -120,7 +116,9 @@ def handle_search(table_name, primary_key, pk_value):
     # Assuming you have a DBMOperations object instantiated as opr
     if isinstance(pk_value, str):
         pk_value = "'" + pk_value + "'"  # Enclose string values in single quotes
-    
+
+    if table_name == 'order details':
+        table_name = 'order_details'
     query = f"SELECT * FROM {table_name} WHERE {primary_key} = {pk_value}"
     
     flag, result = opr.select(query)
@@ -148,58 +146,69 @@ def get_primary_key_info(table_name):
     elif table_name == "Orders":
         return "order_id"
     elif table_name == "Order Details":
-        return "OrderDetailID"
+        return "product"
     else:
         return None
-
-def delete_action():
-    st.header("Delete Actions")
-    # Prompt user for table choice
-    table_choice = st.radio("Select a table to delete from:", ["", "Suppliers", "Products", "Orders", "Order Details"])
     
-    if table_choice != "":
-        st.subheader(f"Delete {table_choice}")
-        # Assuming `opr.select` retrieves data from the database based on the table choice
-        status, table_data = opr.select(f"SELECT * FROM {table_choice.lower()}")
+    
+def delete_action():
+    deletion_status = None
+    st.header("Delete Actions")
         
+    st.write("Choose one table to delete from:")
+    buttons = ["Suppliers", "Products", "Orders", "Order Details"]
+
+    table_choice = None
+
+    for i, button_label in enumerate(buttons):
+        if button(button_label, key=f"button{i+1}"):
+            table_choice = button_label
+
+    if table_choice:
+        st.write(f"You selected {table_choice}.")
+        st.subheader(f"Delete {table_choice}")
+        primary_key_info = get_primary_key_info(table_choice)
+        if primary_key_info:
+            st.write(f"Primary Key: {primary_key_info}")
+            
+        if table_choice == "Order Details":
+            status, table_data = opr.select(f"SELECT * FROM order_details")
+        else:
+            status, table_data = opr.select(f"SELECT * FROM {table_choice.lower()}")
+    
         if status == 1:  # Check if the query was successful
             st.table(table_data[:5])  # Display only the first 5 rows of data
+        
+        primary_key_info = get_primary_key_info(table_choice)
+        if primary_key_info:
+            st.write(f"Primary Key: {primary_key_info}")
+            # Prompt user to enter the primary key value
+            pk_value = st.text_input(f"Enter the {primary_key_info} you would like to remove:")
             
-            # Display primary key information
-            primary_key_info = get_primary_key_info(table_choice)
-            if primary_key_info:
-                st.write(f"Primary Key: {primary_key_info}")
-                
-                # Prompt user to enter the primary key value
-                pk_value = st.text_input(f"Enter the {primary_key_info} you would like to remove:")
-                
-                # Button to trigger the search operation
-                if st.button("Find"):
-                    if pk_value:
-                        # Assuming you have a function to handle the search operation
-                        found_rows = handle_search(table_choice.lower(), primary_key_info, pk_value)
-                        if found_rows:
-                            st.write(f"{pk_value} was found")
-                            # Prompt user to confirm deletion
-                            confirmation = st.radio("Are you sure you want to remove this record?", ["", "Yes", "No"], index=0)
-                            if confirmation == "Yes":
-                                # Assuming you have a function to handle deletion
-                                deletion_status = handle_delete(table_choice.lower(), primary_key_info, pk_value)
-                                if deletion_status:
-                                    st.write(f"{pk_value} was removed")
-                                else:
-                                    st.write("An error occurred while deleting the record.")
-                            elif confirmation == "No":
-                                st.write("Deletion cancelled.")
-                                return  # Don't proceed further if deletion is cancelled
-                            else:
-                                st.write("")
-                        else:
-                            st.write("Not found.")
+        if pk_value:
+            # Assuming you have a function to handle the search operation
+            found_rows = handle_search(table_choice.lower(), primary_key_info, pk_value)
+            if found_rows:
+                st.write(f"{pk_value} was found")
+                st.write("Are you sure you want to remove this record?")
+                y = button("Yes, remove", key='yes00')
+                n = button("No, cancel", key='no00')
+                if y:
+                    deletion_status = handle_delete(table_choice.lower(), primary_key_info, pk_value)
+                    if deletion_status:
+                        st.write(f"{pk_value} was successfully removed")
+                        # Prompt user to remove another record
+                        st.write("Would you like to remove another?")
+                        if button("Yes", key='yes1'):
+                            delete_action()  # Restart delete action
+                        if button("No", key='no1'):
+                            st.write("Deletion process ended.")
+                elif n:
+                    st.write("Deletion process ended.")
+                else:
+                    st.write("")
             else:
-                st.warning("Primary key information not available for this table.")
-        else:
-            st.error("Error occurred while fetching data from the database.")
+                st.write("Row cannot be found")
 
 
 def handle_delete(table_name, primary_key, pk_value):
@@ -212,13 +221,14 @@ def handle_delete(table_name, primary_key, pk_value):
     
     query = f"DELETE FROM {table_name} WHERE {primary_key} = {pk_value}"
     
-    flag, result = opr.execute(query)
+    flag = opr.delete(query)  # Assuming opr.delete returns an integer status
     
     if flag == 1:
-        return True
+        return True, "Deletion successful"
     else:
-        return False
-            
+        return False, "Deletion failed"
+
+
 def search_action():
     st.header("Search Actions")
     # Prompt user for table choice
@@ -227,7 +237,10 @@ def search_action():
     if table_choice != "":
         st.subheader(f"Search {table_choice}")
         # Assuming `opr.select` retrieves data from the database based on the table choice
-        status, table_data = opr.select(f"SELECT * FROM {table_choice.lower()}")
+        if table_choice == "Order Details":
+            status, table_data = opr.select(f"SELECT * FROM order_details")
+        else:
+            status, table_data = opr.select(f"SELECT * FROM {table_choice.lower()}")
         
         if status == 1:  # Check if the query was successful
             st.table(table_data[:5])  # Display only the first 5 rows of data
@@ -238,7 +251,7 @@ def search_action():
                 st.write(f"Primary Key: {primary_key_info}")
                 
                 # Prompt user to enter the primary key value
-                pk_value = st.text_input(f"Enter the {primary_key_info} you would like to remove:")
+                pk_value = st.text_input(f"Enter the {primary_key_info} you would like to search:")
                 
                 # Button to trigger the search operation
                 if st.button("Find"):
@@ -248,73 +261,6 @@ def search_action():
                         if found_rows:
                             st.write(f"{pk_value} was found")
 
-# Functions for handling actions on Suppliers
-def insert_supplier():
-    st.subheader("Insert Supplier")
-    # Add logic to insert supplier into the database
-
-def update_supplier():
-    st.subheader("Update Supplier")
-    # Add logic to update supplier in the database
-
-def delete_supplier():
-    st.subheader("Delete Supplier")
-    # Add logic to delete supplier from the database
-
-def search_supplier():
-    st.subheader("Search Supplier")
-    # Add logic to search for supplier in the database
-
-# Functions for handling actions on Products
-def insert_product():
-    st.subheader("Insert Product")
-    # Add logic to insert product into the database
-
-def update_product():
-    st.subheader("Update Product")
-    # Add logic to update product in the database
-
-def delete_product():
-    st.subheader("Delete Product")
-    # Add logic to delete product from the database
-
-def search_product():
-    st.subheader("Search Product")
-    # Add logic to search for product in the database
-
-# Functions for handling actions on Orders
-def insert_order():
-    st.subheader("Insert Order")
-    # Add logic to insert order into the database
-
-def update_order():
-    st.subheader("Update Order")
-    # Add logic to update order in the database
-
-def delete_order():
-    st.subheader("Delete Order")
-    # Add logic to delete order from the database
-
-def search_order():
-    st.subheader("Search Order")
-    # Add logic to search for order in the database
-
-# Functions for handling actions on Order Details
-def insert_order_detail():
-    st.subheader("Insert Order Detail")
-    # Add logic to insert order detail into the database
-
-def update_order_detail():
-    st.subheader("Update Order Detail")
-    # Add logic to update order detail in the database
-
-def delete_order_detail():
-    st.subheader("Delete Order Detail")
-    # Add logic to delete order detail from the database
-
-def search_order_detail():
-    st.subheader("Search Order Detail")
-    # Add logic to search for order detail in the database
 
 if __name__ == "__main__":
     main()
