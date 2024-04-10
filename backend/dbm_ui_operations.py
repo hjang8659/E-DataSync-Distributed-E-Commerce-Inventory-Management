@@ -1,5 +1,6 @@
 from sqlalchemy import create_engine, text
 from backend.hashing import hash_supplier
+import re
 
 class DBMOperations:
     """
@@ -26,8 +27,47 @@ class DBMOperations:
         """
         Insert record into hashed database after hashing supplier name.
         """
-        supplier_name = self._get_supplier_name(query)
-        db_index = self.hash.generate_hash(supplier_name)
+        # Getting table name
+        match = re.search(r"INSERT INTO\s+([a-zA-Z0-9_]+)", query, re.IGNORECASE)
+        if match:
+            table_name = match.group(1)
+        else:
+            print("Table name could not be found.")
+            return 0
+        
+        if table_name == "suppliers":
+            # Looks like it can only insert 1 value at a time
+            supplier_name = self._get_supplier_name(query)
+            db_index = self.hash.generate_hash(supplier_name)
+
+        elif table_name == "products":
+            # Join products and suppliers as a view, then get supplier name from it and database index
+
+            print("not done")
+        elif table_name == "order_details":
+            # Join order_details to the products/suppliers view to get the supplier name and database index
+            
+            print("not done")
+
+        elif table_name == "orders":
+            # ex query/ INSERT INTO orders (order_id, date, total_price) VALUES (1, '2024-04-10', 100);
+            # Insert into database based on odd/even orders_id value
+            # database 0 if even, database 1 if odd
+            # Regular expression to find and capture the order_id
+            match = re.search(r"VALUES\s*\(\s*(\d+)", query, re.IGNORECASE)
+
+            if match:
+                order_id = int(match.group(1))
+                db_index = order_id % 2
+            else:
+                print("Order ID could not be found.")
+                return 0
+
+            print("ok")
+        
+        else: 
+            print("Table not found:", table_name)
+            
         
         with self.engines[db_index].connect() as con:
             try:
