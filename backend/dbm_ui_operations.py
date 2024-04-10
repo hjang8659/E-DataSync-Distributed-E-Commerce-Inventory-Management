@@ -42,12 +42,36 @@ class DBMOperations:
 
         elif table_name == "products":
             # Join products and suppliers as a view, then get supplier name from it and database index
+            # products "brand" FK connects to "brand_name" PK in suppliers
 
-            print("not done")
+            # getting "brand"
+            match = re.search(r"VALUES\s*\(\s*'(?:[^']|'')*'\s*,\s*'(?:[^']|'')*'\s*,\s*'(?:[^']|'')*'\s*,\s*'((?:[^']|'')*)'", query, re.IGNORECASE)
+
+            if match:
+                brand = match.group(1)
+                db_index = self.hash.generate_hash(brand)
+
+            else:
+                print("Brand could not be found.")
+                return 0
+
         elif table_name == "order_details":
-            # Join order_details to the products/suppliers view to get the supplier name and database index
-            
-            print("not done")
+            # Join order_details to the products view to get the supplier name and database index
+            # product name in the "product" attribute
+
+            # Getting "product" from query
+            match = re.search(r"VALUES\s*\(\s*'([^']*)'", query, re.IGNORECASE)
+
+            if match:
+                product = match.group(1)
+                # Search by primary key for row, then obtain suppliers name
+                query = f"SELECT brand FROM products WHERE product_name = {product}"
+                flag, result = self.select(query)
+                db_index = self.hash.generate_hash(result)
+                
+            else:
+                print("Product could not be found.")
+                return 0
 
         elif table_name == "orders":
             # ex query/ INSERT INTO orders (order_id, date, total_price) VALUES (1, '2024-04-10', 100);
