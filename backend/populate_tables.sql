@@ -1,6 +1,6 @@
 USE mydatabase;
 
-INSERT INTO suppliers (brand_name, address, description, founding_year, num_of_products) VALUES
+INSERT INTO suppliers (brand_name, address, brand_description, founding_year, num_of_products) VALUES
 ('Brand1', 'Address1', 'Description1', 2000, 50),
 ('Brand2', 'Address2', 'Description2', 1995, 60),
 ('Brand3', 'Address3', 'Description3', 2010, 40),
@@ -48,7 +48,7 @@ INSERT INTO suppliers (brand_name, address, description, founding_year, num_of_p
 ('Brand45', 'Address45', 'Description45', 2004, 420),
 ('Brand46', 'Address46', 'Description46', 2006, 430);
 
-INSERT INTO products (product_name, category, sub_category, brand, sale_price, market_price, type, rating, description) VALUES
+INSERT INTO products (product_name, category, sub_category, brand, sale_price, market_price, type, rating, product_description) VALUES
 ('Product1', 'Category1', 'SubCategory1', 'Brand1', 100, 120, 'Type1', 4, 'Description1'),
 ('Product2', 'Category2', 'SubCategory2', 'Brand2', 150, 180, 'Type2', 3, 'Description2'),
 ('Product3', 'Category3', 'SubCategory3', 'Brand3', 200, 240, 'Type3', 5, 'Description3'),
@@ -244,7 +244,7 @@ INSERT INTO order_details (product, order_) VALUES
 
 USE mydatabase2;
 
-INSERT INTO suppliers (brand_name, address, description, founding_year, num_of_products) VALUES
+INSERT INTO suppliers (brand_name, address, brand_description, founding_year, num_of_products) VALUES
 ('Brand47', 'Address47', 'Description47', 1997, 440),
 ('Brand48', 'Address48', 'Description48', 2003, 450),
 ('Brand49', 'Address49', 'Description49', 2011, 460),
@@ -276,7 +276,7 @@ INSERT INTO suppliers (brand_name, address, description, founding_year, num_of_p
 ('Brand75', 'Address75', 'Description75', 2010, 720);
 
 
-INSERT INTO products (product_name, category, sub_category, brand, sale_price, market_price, type, rating, description) VALUES
+INSERT INTO products (product_name, category, sub_category, brand, sale_price, market_price, type, rating, product_description) VALUES
 ('Product30', 'Category30', 'SubCategory30', 'Brand50', 1800, 2160, 'Type30', 3, 'Description30'),
 ('Product31', 'Category31', 'SubCategory31', 'Brand51', 1850, 2220, 'Type31', 5, 'Description31'),
 ('Product32', 'Category32', 'SubCategory32', 'Brand52', 1900, 2280, 'Type32', 4, 'Description32'),
