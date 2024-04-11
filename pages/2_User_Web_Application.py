@@ -10,7 +10,7 @@ def main():
     st.title("End-User Web Application")
     
     # Prompt user for action choice
-    action_choice = st.radio("Select an action to perform:", ["", "Insert", "Update", "Delete", "Search"])
+    action_choice = st.radio("Select an action to perform:", ["Insert", "Update", "Delete", "Search"], index=None)
     
     # Display appropriate tables based on user choice
     if action_choice == "Insert":
@@ -25,13 +25,13 @@ def main():
 def insert_action():
     st.header("Insert Actions")
     # Prompt user for table choice
-    table_choice = st.radio("Select a table to insert into:", ["", "Suppliers", "Products", "Orders", "Order Details"], index=0)
+    table_choice = st.radio("Select a table to insert into:", ["Suppliers", "Products", "Orders", "Order Details"], index=None)
 
 
 def update_action():
     st.header("Update Actions")
     # Prompt user for table choice
-    table_choice = st.radio("Select a table to update:", ["", "Suppliers", "Products", "Orders", "Order Details"], index=0)
+    table_choice = st.radio("Select a table to update:", ["Suppliers", "Products", "Orders", "Order Details"], index=None)
     
     if table_choice != "":
         st.subheader(f"Update {table_choice}")
@@ -113,13 +113,18 @@ def handle_search(table_name, primary_key, pk_value):
     # This function will search for rows in the database based on the primary key value
     # Replace the example logic with your actual implementation
     
-    # Assuming you have a DBMOperations object instantiated as opr
     if isinstance(pk_value, str):
-        pk_value = "'" + pk_value + "'"  # Enclose string values in single quotes
+        if ',' in pk_value:
+            # Split the string by comma and enclose each value in single quotes
+            split_pkv = [f"'{val.strip()}'" for val in pk_value.split(',')]
+        else:
+            pk_value = "'" + pk_value + "'"  # Enclose single value in single quotes
 
     if table_name == 'order details':
         table_name = 'order_details'
-    query = f"SELECT * FROM {table_name} WHERE {primary_key} = {pk_value}"
+        query = f"SELECT * FROM order_details WHERE product = {split_pkv[0]} AND order_ = {split_pkv[1]}"
+    else:
+        query = f"SELECT * FROM {table_name} WHERE {primary_key} = {pk_value}"
     
     flag, result = opr.select(query)
     
@@ -146,11 +151,11 @@ def get_primary_key_info(table_name):
     elif table_name == "Orders":
         return "order_id"
     elif table_name == "Order Details":
-        return "product"
+        return "product and order_"
     else:
         return None
     
-    
+
 def delete_action():
     deletion_status = None
     st.header("Delete Actions")
@@ -161,7 +166,7 @@ def delete_action():
     table_choice = None
 
     for i, button_label in enumerate(buttons):
-        if button(button_label, key=f"button{i+1}"):
+        if button(button_label, key=f"button{i+1}"):  # Use unique keys for each button
             table_choice = button_label
 
     if table_choice:
@@ -181,9 +186,13 @@ def delete_action():
         
         primary_key_info = get_primary_key_info(table_choice)
         if primary_key_info:
-            st.write(f"Primary Key: {primary_key_info}")
-            # Prompt user to enter the primary key value
-            pk_value = st.text_input(f"Enter the {primary_key_info} you would like to remove:")
+            if table_choice == "Order Details":
+                st.write(f"Composite Key: product, order_")
+                st.write("e.g. Product72,5")
+                pk_value = st.text_input(f"Enter the product and order_ you would like to remove. Follow the provided example above:")
+            else:
+                st.write(f"Primary Key: {primary_key_info}")
+                pk_value = st.text_input(f"Enter the {primary_key_info} you would like to remove:")
             
         if pk_value:
             # Assuming you have a function to handle the search operation
@@ -191,20 +200,20 @@ def delete_action():
             if found_rows:
                 st.write(f"{pk_value} was found")
                 st.write("Are you sure you want to remove this record?")
-                y = button("Yes, remove", key='yes00')
-                n = button("No, cancel", key='no00')
+                y = button("Yes, remove", key=f'yes00_{table_choice}_{pk_value}')  # Unique key for each button
+                n = button("No, cancel", key=f'no00_{table_choice}_{pk_value}')  # Unique key for each button
                 if y:
-                    deletion_status = handle_delete(table_choice.lower(), primary_key_info, pk_value)
+                    deletion_status, msg = handle_delete(table_choice.lower(), primary_key_info, pk_value)
                     if deletion_status:
-                        st.write(f"{pk_value} was successfully removed")
+                        st.write(f"{pk_value} {msg}")
                         # Prompt user to remove another record
                         st.write("Would you like to remove another?")
-                        if button("Yes", key='yes1'):
+                        if button("Yes", key=f'yes1_{table_choice}'):  # Unique key for each button
                             delete_action()  # Restart delete action
-                        if button("No", key='no1'):
+                        if button("No", key=f'no1_{table_choice}'):  # Unique key for each button
                             st.write("Deletion process ended.")
                 elif n:
-                    st.write("Deletion process ended.")
+                    st.write(f"{pk_value} deletion cancelled.")
                 else:
                     st.write("")
             else:
@@ -214,19 +223,26 @@ def delete_action():
 def handle_delete(table_name, primary_key, pk_value):
     # Function to handle the deletion of a record from the database
     # Replace the example logic with your actual implementation
-    
-    # Assuming you have a DBMOperations object instantiated as opr
+
     if isinstance(pk_value, str):
-        pk_value = "'" + pk_value + "'"  # Enclose string values in single quotes
-    
-    query = f"DELETE FROM {table_name} WHERE {primary_key} = {pk_value}"
+        if ',' in pk_value:
+            # Split the string by comma and enclose each value in single quotes
+            split_pkv = [f"'{val.strip()}'" for val in pk_value.split(',')]
+        else:
+            pk_value = "'" + pk_value + "'"  # Enclose single value in single quotes
+
+    if table_name == 'order details':
+        table_name = 'order_details'
+        query = f"DELETE FROM order_details WHERE product = {split_pkv[0]} AND order_ = {split_pkv[1]}"
+    else:
+        query = f"DELETE FROM {table_name} WHERE {primary_key} = {pk_value}"
     
     flag = opr.delete(query)  # Assuming opr.delete returns an integer status
-    
+
     if flag == 1:
-        return True, "Deletion successful"
+        return True, "deletion successful"
     else:
-        return False, "Deletion failed"
+        return False, "deletion failed"
 
 
 def search_action():
