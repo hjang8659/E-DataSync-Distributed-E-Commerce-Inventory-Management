@@ -27,7 +27,8 @@ class DeveloperPage:
             """,
             unsafe_allow_html=True,
         )
-        st.write("#### Developer Page")
+        st.title("Database Manager CLI UI")
+        st.image('frontend/ERD.png')
 
         authenticated = self.authenticate()
         if authenticated:

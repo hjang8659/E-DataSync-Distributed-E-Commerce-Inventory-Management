@@ -8,6 +8,7 @@ opr = UserOperations()
 
 def main():
     st.title("End-User Web Application")
+    st.image('frontend/ERD.png')
     
     # Prompt user for action choice
     action_choice = st.radio("Select an action to perform:", ["", "Insert", "Update", "Delete", "Search"])
