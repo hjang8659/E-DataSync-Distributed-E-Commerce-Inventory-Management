@@ -246,36 +246,67 @@ def handle_delete(table_name, primary_key, pk_value):
 
 
 def search_action():
+    deletion_status = None
     st.header("Search Actions")
-    # Prompt user for table choice
-    table_choice = st.radio("Select a table to search from:", ["", "Suppliers", "Products", "Orders", "Order Details"])
-    
-    if table_choice != "":
+        
+    st.write("Choose one table to search from:")
+    buttons = ["Suppliers", "Products", "Orders", "Order Details"]
+
+    table_choice = None
+
+    for i, button_label in enumerate(buttons):
+        if button(button_label, key=f"button{i+1}"):  # Use unique keys for each button
+            table_choice = button_label
+
+    if table_choice:
+        st.write(f"You selected {table_choice}.")
         st.subheader(f"Search {table_choice}")
-        # Assuming `opr.select` retrieves data from the database based on the table choice
+        primary_key_info = get_primary_key_info(table_choice)
+        if primary_key_info:
+            st.write(f"Primary Key: {primary_key_info}")
+            
         if table_choice == "Order Details":
             status, table_data = opr.select(f"SELECT * FROM order_details")
         else:
             status, table_data = opr.select(f"SELECT * FROM {table_choice.lower()}")
-        
+
+
+
+
+    # st.header("Search Actions")
+    # # Prompt user for table choice
+    # table_choice = st.radio("Select a table to search from:", ["Suppliers", "Products", "Orders", "Order Details"], index=None)
+    
+    # # if table_choice != "":
+    # st.subheader(f"Search {table_choice}")
+    # # Assuming `opr.select` retrieves data from the database based on the table choice
+    # if table_choice == "Order Details":
+    #     status, table_data = opr.select(f"SELECT * FROM order_details")
+    # else:
+    #     status, table_data = opr.select(f"SELECT * FROM {table_choice.lower()}")
+    
         if status == 1:  # Check if the query was successful
             st.table(table_data[:5])  # Display only the first 5 rows of data
+        
+        # Display primary key information
+        primary_key_info = get_primary_key_info(table_choice)
+        if primary_key_info:
+            st.write(f"Primary Key: {primary_key_info}")
             
-            # Display primary key information
-            primary_key_info = get_primary_key_info(table_choice)
-            if primary_key_info:
-                st.write(f"Primary Key: {primary_key_info}")
-                
-                # Prompt user to enter the primary key value
-                pk_value = st.text_input(f"Enter the {primary_key_info} you would like to search:")
-                
-                # Button to trigger the search operation
-                if st.button("Find"):
-                    if pk_value:
-                        # Assuming you have a function to handle the search operation
-                        found_rows = handle_search(table_choice.lower(), primary_key_info, pk_value)
-                        if found_rows:
-                            st.write(f"{pk_value} was found")
+            # Prompt user to enter the primary key value
+            pk_value = st.text_input(f"Enter the {primary_key_info} you would like to search:")
+            
+            # Button to trigger the search operation
+            if st.button("Find"):
+                if pk_value:
+                    # Assuming you have a function to handle the search operation
+                    found_rows = handle_search(table_choice.lower(), primary_key_info, pk_value)
+                    if found_rows:
+                        st.write(f"{pk_value} was found.")
+                    else:
+                        st.write(f"Unable to find {pk_value}.")
+    else:
+        st.write("")
 
 
 if __name__ == "__main__":
