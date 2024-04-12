@@ -269,21 +269,6 @@ def search_action():
             status, table_data = opr.select(f"SELECT * FROM order_details")
         else:
             status, table_data = opr.select(f"SELECT * FROM {table_choice.lower()}")
-
-
-
-
-    # st.header("Search Actions")
-    # # Prompt user for table choice
-    # table_choice = st.radio("Select a table to search from:", ["Suppliers", "Products", "Orders", "Order Details"], index=None)
-    
-    # # if table_choice != "":
-    # st.subheader(f"Search {table_choice}")
-    # # Assuming `opr.select` retrieves data from the database based on the table choice
-    # if table_choice == "Order Details":
-    #     status, table_data = opr.select(f"SELECT * FROM order_details")
-    # else:
-    #     status, table_data = opr.select(f"SELECT * FROM {table_choice.lower()}")
     
         if status == 1:  # Check if the query was successful
             st.table(table_data[:5])  # Display only the first 5 rows of data
