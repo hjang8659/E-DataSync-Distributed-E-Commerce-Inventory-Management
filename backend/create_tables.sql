@@ -5,7 +5,7 @@ DROP TABLE IF EXISTS suppliers, products, orders, order_details;
 CREATE TABLE suppliers (
     brand_name VARCHAR(500) PRIMARY KEY,
     address TEXT,
-    description TEXT,
+    brand_description TEXT,
     founding_year INT UNSIGNED,
     num_of_products INT UNSIGNED
 );
@@ -19,7 +19,7 @@ CREATE TABLE products (
     market_price INT UNSIGNED,
     type TEXT,
     rating INT UNSIGNED,
-    description TEXT,
+    product_description TEXT,
     CONSTRAINT fk_brand_suppliers FOREIGN KEY (brand) REFERENCES suppliers(brand_name) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
@@ -44,7 +44,7 @@ DROP TABLE IF EXISTS suppliers, products, orders, order_details;
 CREATE TABLE suppliers (
     brand_name VARCHAR(500) PRIMARY KEY,
     address TEXT,
-    description TEXT,
+    brand_description TEXT,
     founding_year INT UNSIGNED,
     num_of_products INT UNSIGNED
 );
@@ -58,7 +58,7 @@ CREATE TABLE products (
     market_price INT UNSIGNED,
     type TEXT,
     rating INT UNSIGNED,
-    description TEXT,
+    product_description TEXT,
     CONSTRAINT fk_brand_suppliers FOREIGN KEY (brand) REFERENCES suppliers(brand_name) ON UPDATE CASCADE ON DELETE CASCADE
 );
 

@@ -1,6 +1,9 @@
 from backend.hashing import hash_supplier
 from backend.dbm_ui_operations import DBMOperations
 
+#TODO: make general insert function which can insert into any of the 4 tables correctly
+# - make 2nd hash function even/odd
+
 class UserOperations:
     """
     Class to perform User operations.

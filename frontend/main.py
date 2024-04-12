@@ -22,6 +22,7 @@ class DSCI551Project:
 
         st.write("# E-DataSync: Distributed E-Commerce Inventory Management")
         st.image('frontend/display.jpeg')
+        # st.image('frontend/ERD.png')
 
         st.markdown(
             """
