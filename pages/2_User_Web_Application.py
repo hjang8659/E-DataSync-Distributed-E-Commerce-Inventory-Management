@@ -4,7 +4,7 @@ from backend.dbm_ui_operations import DBMOperations
 from streamlit_extras.stateful_button import button
 
 
-opr = UserOperations()
+opr = DBMOperations()
 
 def main():
     st.title("End-User Web Application")
@@ -38,9 +38,9 @@ def update_action():
         st.subheader(f"Update {table_choice}")
         # Assuming `opr.select` retrieves data from the database based on the table choice
         if table_choice == "Order Details":
-            status, table_data = opr.opr.select(f"SELECT * FROM order_details")
+            status, table_data = opr.select(f"SELECT * FROM order_details")
         else:
-            status, table_data = opr.opr.select(f"SELECT * FROM {table_choice.lower()}")
+            status, table_data = opr.select(f"SELECT * FROM {table_choice.lower()}")
         
         if status == 1:  # Check if the query was successful
             st.table(table_data[:5])  # Display only the first 5 rows of data
@@ -78,7 +78,7 @@ def handle_search_update(table_name, primary_key, pk_value):
     
     query = f"SELECT * FROM {table_name} WHERE {primary_key} = {pk_value}"
     
-    flag, result = opr.opr.select(query)
+    flag, result = opr.select(query)
     
     if flag == 1:
         if result:
@@ -127,7 +127,7 @@ def handle_search(table_name, primary_key, pk_value):
     else:
         query = f"SELECT * FROM {table_name} WHERE {primary_key} = {pk_value}"
     
-    flag, result = opr.opr.select(query)
+    flag, result = opr.select(query)
     
     if flag == 1:
         if result:
@@ -156,7 +156,6 @@ def get_primary_key_info(table_name):
     else:
         return None
     
-
 def delete_action():
     deletion_status = None
     st.header("Delete Actions")
@@ -178,9 +177,9 @@ def delete_action():
             st.write(f"Primary Key: {primary_key_info}")
             
         if table_choice == "Order Details":
-            status, table_data = opr.opr.select(f"SELECT * FROM order_details")
+            status, table_data = opr.select(f"SELECT * FROM order_details")
         else:
-            status, table_data = opr.opr.select(f"SELECT * FROM {table_choice.lower()}")
+            status, table_data = opr.select(f"SELECT * FROM {table_choice.lower()}")
     
         if status == 1:  # Check if the query was successful
             st.table(table_data[:5])  # Display only the first 5 rows of data
@@ -255,9 +254,9 @@ def search_action():
         st.subheader(f"Search {table_choice}")
         # Assuming `opr.select` retrieves data from the database based on the table choice
         if table_choice == "Order Details":
-            status, table_data = opr.opr.select(f"SELECT * FROM order_details")
+            status, table_data = opr.select(f"SELECT * FROM order_details")
         else:
-            status, table_data = opr.opr.select(f"SELECT * FROM {table_choice.lower()}")
+            status, table_data = opr.select(f"SELECT * FROM {table_choice.lower()}")
         
         if status == 1:  # Check if the query was successful
             st.table(table_data[:5])  # Display only the first 5 rows of data
