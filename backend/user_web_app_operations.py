@@ -27,7 +27,7 @@ class UserOperations:
         print(flag, res)
         return flag, res
     
-    def modify(self, table_name, attributes, operators , values, conditions):
+    def modify(self, table_name, attributes, operators , values, set_part):
         """
         function to modify table_name with set attributes, operators, and values. Lastly, use the conditions. 
         """
@@ -41,9 +41,9 @@ class UserOperations:
         for i in range(len(attributes)):
             results.append(attributes[i] + " " + operators[i] + " " + values[i])
 
-        str_attributes = ", ".join(results)
-        str_conditions = ", ".join(conditions)
-        flag, res = self.opr.update(f'UPDATE {table_name} SET {str_attributes} WHERE {str_conditions}')
+        str_conditions = ", ".join(results)
+        str_set_part = ", ".join(set_part)
+        flag, res = self.opr.update(f'UPDATE {table_name} SET {str_set_part} WHERE {str_conditions}')
         print(flag, res)
         return flag, res
     
