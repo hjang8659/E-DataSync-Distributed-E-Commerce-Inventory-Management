@@ -77,7 +77,16 @@ def insert_action():
 
     if table_choice:
         st.write(f"You selected {table_choice}.")
-        st.subheader(f"Insert into {table_choice}")
+        
+        if table_choice == "Order Details":
+            status, table_data = opr.opr.select(f"SELECT * FROM order_details")
+        else:
+            status, table_data = opr.opr.select(f"SELECT * FROM {table_choice.lower()}")
+    
+        if status == 1:  # Check if the query was successful
+            st.table(table_data[:5])  # Display only the first 5 rows of data
+            
+        st.subheader(f"Insert {table_choice}")
 
         if table_choice == "Products":
             st.markdown("<p style='color:red'><strong>Make sure that the brand name corresponds to the correct brand name in the suppliers table.</strong></p>", unsafe_allow_html=True)
@@ -116,7 +125,7 @@ def insert_action():
                 if flag:
                     st.success("Data inserted successfully!")
                 else:
-                    st.error(f"Error inserting data: {res}")
+                    st.error(f"Error inserting data")
             if button("No", key="insert_no"):
                 st.write("Insertion cancelled")
 
@@ -175,62 +184,100 @@ def update_action():
             if table_choice == "Order Details":
                 st.write(f"Composite Key: product, order_")
                 st.write("e.g. Product72,5")
-                pk_value = st.text_input(f"Enter the product and order_ you would like to update. Follow the provided example above:")
-                if pk_value:
-                    # Assuming you have a function to handle the search operation
-                    found_rows = handle_search_update(table_choice.lower(), primary_key_info, pk_value)
-                    if found_rows:
-                        st.write(f"")
-                    else:
-                        st.write("Not found.")
+                pk_value = st.text_input(f"Enter the product and order_ you would like to modify. Follow the provided example above:")
             else:
                 st.write(f"Primary Key: {primary_key_info}")
-                pk_value = st.text_input(f"Enter the {primary_key_info} you would like to update:")
-            
-        else:
-            st.error("Error occurred while fetching data from the database.")  # Display error message if query failed
+                pk_value = st.text_input(f"Enter the {primary_key_info} you would like to modify:")
 
-
-def handle_search_update(table_name, primary_key, pk_value):
+        if pk_value:
+            # Assuming you have a function to handle the search operation
+            found_rows = handle_search(table_choice.lower(), primary_key_info, pk_value)
+            if found_rows:
+                st.write(f"{pk_value} was found")
+                table_name = get_table_name(table_choice)
+                column_names = np.unique(get_column_names(table_choice))
+                inputs = {}
+                for column_name in column_names:
+                    inputs[column_name] = st.text_input(f"Enter {column_name}:")
+                
+            else:
+                st.write("Row cannot be found")
+        # if pk_value:
+        #     # Assuming you have a function to handle the search operation
+        #     found_rows = handle_search_update(table_choice.lower(), primary_key_info, pk_value)
+        #     if found_rows:
+        #         st.write(f"")
+        #     else:
+        #         st.write("Not found.")
+        # else:
+        #     st.error("Error occurred while fetching data from the database.")  # Display error message if query failed
+                
+                
+# def handle_search_update(table_name, primary_key, pk_value):
     # Function to handle the search operation based on the primary key value
     # This function will search for rows in the database based on the primary key value
     # Replace the example logic with your actual implementation
     
-    # Assuming you have a DBMOperations object instantiated as opr
-    if isinstance(pk_value, str):
-        pk_value = "'" + pk_value + "'"  # Enclose string values in single quotes
+    # if isinstance(pk_value, str):
+    #     if ',' in pk_value:
+    #         # Split the string by comma and enclose each value in single quotes
+    #         split_pkv = [f"'{val.strip()}'" for val in pk_value.split(',')]
+    #     else:
+    #         pk_value = "'" + pk_value + "'"  # Enclose single value in single quotes
+
+    # if table_name == 'order details':
+    #     table_name = 'order_details'
+    #     query = f"SELECT * FROM order_details WHERE product = {split_pkv[0]} AND order_ = {split_pkv[1]}"
+    # else:
+    #     query = f"SELECT * FROM {table_name} WHERE {primary_key} = {pk_value}"
     
-    query = f"SELECT * FROM {table_name} WHERE {primary_key} = {pk_value}"
+    # flag, result = opr.opr.select(query)
     
-    flag, result = opr.opr.select(query)
+    # if flag == 1:
+    #     if result:
+    #         # Display the result as a table using st.table()
+    #         st.table(result)
+    #         return 1
+    # else:
+    #     st.error("Error occurred while fetching data from the database.")
+    #     return 0
     
-    if flag == 1:
-        if result:
-            # Display the table with one row
-            st.table(result)
+    
+    # # Assuming you have a DBMOperations object instantiated as opr
+    # if isinstance(pk_value, str):
+    #     pk_value = "'" + pk_value + "'"  # Enclose string values in single quotes
+    
+    # query = f"SELECT * FROM {table_name} WHERE {primary_key} = {pk_value}"
+    
+    # flag, result = opr.opr.select(query)
+    
+    # if flag == 1:
+    #     if result:
+    #         # Display the table with one row
+    #         st.table(result)
             
-            # Generate text input boxes for each column
-            column_names = ['brand_name', 'address', 'description', 'founding_year', 'num_of_products']
-            updated_values = []
-            for index, value in enumerate(result[0]):
-                updated_value = st.text_input(f"Update {column_names[index]}:", value=value)
-                updated_values.append(updated_value)
+    #         # Generate text input boxes for each column
+    #         column_names = ['brand_name', 'address', 'description', 'founding_year', 'num_of_products']
+    #         updated_values = []
+    #         for index, value in enumerate(result[0]):
+    #             updated_value = st.text_input(f"Update {column_names[index]}:", value=value)
+    #             updated_values.append(updated_value)
             
-            # Save button to update the row in the database
-            if st.button("Save"):
-                # Logic to update the value in the database
-                updated_row = dict(zip(column_names, updated_values))
-                # Assuming you have a function to update the row
-                update_status = update_row_in_database(table_name, primary_key, pk_value, updated_row)
-                if update_status:
-                    st.success("Row updated successfully.")
-                else:
-                    st.error("Failed to update row.")
+    #         # Save button to update the row in the database
+    #         if st.button("Save"):
+    #             # Logic to update the value in the database
+    #             updated_row = dict(zip(column_names, updated_values))
+    #             # Assuming you have a function to update the row
+    #             update_status = update_row_in_database(table_name, primary_key, pk_value, updated_row)
+    #             if update_status:
+    #                 st.success("Row updated successfully.")
+    #             else:
+    #                 st.error("Failed to update row.")
             
-            return result  # Return the found row(s)
-    else:
-        st.error("Error occurred while fetching data from the database.")
-        return None
+    #         return result  # Return the found row(s)
+    # else:
+    #     st.error("Error occurred while fetching data from the database.")
+    #     return None
 
 
 def handle_search(table_name, primary_key, pk_value):
