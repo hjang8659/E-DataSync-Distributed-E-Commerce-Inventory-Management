@@ -30,42 +30,51 @@ def insert_action():
 
 
 def update_action():
+    deletion_status = None
     st.header("Update Actions")
-    # Prompt user for table choice
-    table_choice = st.radio("Select a table to update:", ["Suppliers", "Products", "Orders", "Order Details"], index=None)
-    
-    if table_choice != "":
+        
+    st.write("Choose one table to update from:")
+    buttons = ["Suppliers", "Products", "Orders", "Order Details"]
+
+    table_choice = None
+
+    for i, button_label in enumerate(buttons):
+        if button(button_label, key=f"button{i+1}"):  # Use unique keys for each button
+            table_choice = button_label
+
+    if table_choice:
+        st.write(f"You selected {table_choice}.")
         st.subheader(f"Update {table_choice}")
-        # Assuming `opr.select` retrieves data from the database based on the table choice
+        primary_key_info = get_primary_key_info(table_choice)
+            
         if table_choice == "Order Details":
             status, table_data = opr.select(f"SELECT * FROM order_details")
         else:
             status, table_data = opr.select(f"SELECT * FROM {table_choice.lower()}")
-        
+    
         if status == 1:  # Check if the query was successful
             st.table(table_data[:5])  # Display only the first 5 rows of data
-            
-            # Display primary key information
-            primary_key_info = get_primary_key_info(table_choice)
-            if primary_key_info:
-                st.write(f"Primary Key: {primary_key_info}")
-                
-                # Prompt user to enter the primary key value
-                pk_value = st.text_input(f"Enter the {primary_key_info} you would like to update:")
-                
-                # Button to trigger the search operation
-                if st.button("Find"):
-                    if pk_value:
-                        # Assuming you have a function to handle the search operation
-                        found_rows = handle_search_update(table_choice.lower(), primary_key_info, pk_value)
-                        if found_rows:
-                            st.write(f"")
-                        else:
-                            st.write("Not found.")
+        
+        primary_key_info = get_primary_key_info(table_choice)
+        if primary_key_info:
+            if table_choice == "Order Details":
+                st.write(f"Composite Key: product, order_")
+                st.write("e.g. Product72,5")
+                pk_value = st.text_input(f"Enter the product and order_ you would like to update. Follow the provided example above:")
+                if pk_value:
+                    # Assuming you have a function to handle the search operation
+                    found_rows = handle_search_update(table_choice.lower(), primary_key_info, pk_value)
+                    if found_rows:
+                        st.write(f"")
+                    else:
+                        st.write("Not found.")
             else:
-                st.warning("Primary key information not available for this table.")
+                st.write(f"Primary Key: {primary_key_info}")
+                pk_value = st.text_input(f"Enter the {primary_key_info} you would like to update:")
+            
         else:
             st.error("Error occurred while fetching data from the database.")  # Display error message if query failed
+
 
 def handle_search_update(table_name, primary_key, pk_value):
     # Function to handle the search operation based on the primary key value
@@ -156,6 +165,7 @@ def get_primary_key_info(table_name):
     else:
         return None
     
+
 def delete_action():
     deletion_status = None
     st.header("Delete Actions")
@@ -173,8 +183,6 @@ def delete_action():
         st.write(f"You selected {table_choice}.")
         st.subheader(f"Delete {table_choice}")
         primary_key_info = get_primary_key_info(table_choice)
-        if primary_key_info:
-            st.write(f"Primary Key: {primary_key_info}")
             
         if table_choice == "Order Details":
             status, table_data = opr.select(f"SELECT * FROM order_details")
@@ -246,7 +254,6 @@ def handle_delete(table_name, primary_key, pk_value):
 
 
 def search_action():
-    deletion_status = None
     st.header("Search Actions")
         
     st.write("Choose one table to search from:")
@@ -262,9 +269,6 @@ def search_action():
         st.write(f"You selected {table_choice}.")
         st.subheader(f"Search {table_choice}")
         primary_key_info = get_primary_key_info(table_choice)
-        if primary_key_info:
-            st.write(f"Primary Key: {primary_key_info}")
-            
         if table_choice == "Order Details":
             status, table_data = opr.select(f"SELECT * FROM order_details")
         else:
@@ -273,25 +277,23 @@ def search_action():
         if status == 1:  # Check if the query was successful
             st.table(table_data[:5])  # Display only the first 5 rows of data
         
-        # Display primary key information
         primary_key_info = get_primary_key_info(table_choice)
         if primary_key_info:
-            st.write(f"Primary Key: {primary_key_info}")
+            if table_choice == "Order Details":
+                st.write(f"Composite Key: product, order_")
+                st.write("e.g. Product72,5")
+                pk_value = st.text_input(f"Enter the product and order_ you would like to search. Follow the provided example above:")
+            else:
+                st.write(f"Primary Key: {primary_key_info}")
+                pk_value = st.text_input(f"Enter the {primary_key_info} you would like to search:")
             
-            # Prompt user to enter the primary key value
-            pk_value = st.text_input(f"Enter the {primary_key_info} you would like to search:")
-            
-            # Button to trigger the search operation
-            if st.button("Find"):
-                if pk_value:
-                    # Assuming you have a function to handle the search operation
-                    found_rows = handle_search(table_choice.lower(), primary_key_info, pk_value)
-                    if found_rows:
-                        st.write(f"{pk_value} was found.")
-                    else:
-                        st.write(f"Unable to find {pk_value}.")
-    else:
-        st.write("")
+        if pk_value:
+            # Assuming you have a function to handle the search operation
+            found_rows = handle_search(table_choice.lower(), primary_key_info, pk_value)
+            if found_rows:
+                st.write(f"{pk_value} was found")
+            else:
+                st.write("Row cannot be found")
 
 
 if __name__ == "__main__":
