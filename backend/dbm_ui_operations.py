@@ -83,6 +83,18 @@ class DBMOperations:
             if match:
                 order_id = int(match.group(1))
                 db_index = order_id % 2
+
+                with self.engines[db_index].connect() as con:
+                    try:
+                        con.execute(text(query))
+                        con.commit()
+                        con.close()
+                    except Exception as e:
+                        print(e)
+                        return 0
+                    
+                db_index = 1 - db_index 
+
             else:
                 print("Order ID could not be found.")
                 return 0
