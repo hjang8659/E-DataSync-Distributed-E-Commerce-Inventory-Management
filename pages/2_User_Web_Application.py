@@ -163,7 +163,7 @@ def update_action():
     table_choice = None
 
     for i, button_label in enumerate(buttons):
-        if button(button_label, key=f"button{i+1}"):  # Use unique keys for each button
+        if button(button_label, key=f"button_{button_label}"):  # Use a unique key for each button
             table_choice = button_label
 
     if table_choice:
