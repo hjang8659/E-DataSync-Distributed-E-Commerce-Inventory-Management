@@ -14,6 +14,12 @@ def main():
     # Prompt user for action choice
     action_choice = st.radio("Select an action to perform:", ["Insert", "Update", "Delete", "Search"], index=None)
     
+    # Reset all button states when action_choice changes
+    if st.session_state.get("last_action_choice") != action_choice:
+        for key in st.session_state.keys():
+            if key.startswith("button"):
+                st.session_state[key] = False
+    
     # Display appropriate tables based on user choice
     if action_choice == "Insert":
         insert_action()
@@ -23,6 +29,10 @@ def main():
         delete_action()
     elif action_choice == "Search":
         search_action()
+    
+    # Store the last action_choice in session state
+    st.session_state["last_action_choice"] = action_choice
+
 
 
 def get_primary_key_info(table_name):
@@ -363,26 +373,26 @@ def delete_action():
             # Assuming you have a function to handle the search operation
             found_rows = handle_search(table_choice.lower(), primary_key_info, pk_value)
             if found_rows:
-                st.write(f"{pk_value} was found")
-                st.write("Are you sure you want to remove this record?")
-                y = button("Yes, remove", key=f'yes00_{table_choice}_{pk_value}')  # Unique key for each button
-                n = button("No, cancel", key=f'no00_{table_choice}_{pk_value}')  # Unique key for each button
-                if y:
-                    deletion_status, msg = handle_delete(table_choice.lower(), primary_key_info, pk_value)
-                    if deletion_status:
-                        st.write(f"{pk_value} {msg}")
-                        # Prompt user to remove another record
-                        st.write("Would you like to remove another?")
-                        if button("Yes", key=f'yes1_{table_choice}'):  # Unique key for each button
-                            delete_action()  # Restart delete action
-                        if button("No", key=f'no1_{table_choice}'):  # Unique key for each button
-                            st.write("Deletion process ended.")
-                elif n:
-                    st.write(f"{pk_value} deletion cancelled.")
-                else:
-                    st.write("")
+                    st.write(f"{pk_value} was found")
+                    st.write("Are you sure you want to remove this record?")
+                    y = button("Yes, remove", key=f'yes00_{table_choice}_{pk_value}')  # Unique key for each button
+                    n = button("No, cancel", key=f'no00_{table_choice}_{pk_value}')  # Unique key for each button
+                    if y:
+                        deletion_status, msg = handle_delete(table_choice.lower(), primary_key_info, pk_value)
+                        if deletion_status:
+                                st.write(f"{pk_value} {msg}")
+                                # Prompt user to remove another record
+                                st.write("Would you like to remove another?")
+                                if button("Yes", key=f'yes1_{table_choice}'):  # Unique key for each button
+                                    delete_action()  # Restart delete action
+                                if button("No", key=f'no1_{table_choice}'):  # Unique key for each button
+                                    st.write("Deletion process ended.")
+                    elif n:
+                        st.write(f"{pk_value} deletion cancelled.")
+                    else:
+                        st.write("")
             else:
-                st.write("Row cannot be found")
+                    st.write("Row cannot be found")
 
 
 def handle_delete(table_name, primary_key, pk_value):
@@ -415,7 +425,6 @@ def search_action():
         
     st.write("Choose one table to search from:")
     buttons = ["Suppliers", "Products", "Orders", "Order Details"]
-
     table_choice = None
 
     for i, button_label in enumerate(buttons):
@@ -423,6 +432,9 @@ def search_action():
             table_choice = button_label
 
     if table_choice:
+        # st.session_state.pop("single_button", None)
+        # st.session_state.pop("multiple_button", None)
+        
         st.write(f"You selected {table_choice}.")
         st.subheader(f"Search {table_choice}")
         primary_key_info = get_primary_key_info(table_choice)
@@ -433,24 +445,64 @@ def search_action():
     
         if status == 1:  # Check if the query was successful
             st.table(table_data[:5])  # Display only the first 5 rows of data
+
+        st.write("Choose the type of search you would like to perform:")
+        single = button("Single", key="single_button")
+        multiple = button("Multiple", key="multiple_button")
+        if single:
+            primary_key_info = get_primary_key_info(table_choice)
+            if primary_key_info:
+                if table_choice == "Order Details":
+                    st.write(f"Composite Key: product, order_")
+                    st.write("e.g. Product72,5")
+                    pk_value = st.text_input(f"Enter the product and order_ you would like to search. Follow the provided example above:")
+                else:
+                    st.write(f"Primary Key: {primary_key_info}")
+                    pk_value = st.text_input(f"Enter the {primary_key_info} you would like to search:")
+                
+            if pk_value:
+                found_rows = handle_search(table_choice.lower(), primary_key_info, pk_value)
+                if found_rows:
+                    st.write(f"{pk_value} was found")
+                    st.session_state["single_button"] = False
+                    
+                else:
+                    st.write("Row cannot be found")
+
+        if multiple:
+            primary_key_info = get_primary_key_info(table_choice)
+            if primary_key_info:
+                if table_choice == "Order Details":
+                    st.write(f"Composite Key: product, order_")
+                    st.write("e.g. WHERE product > 5 AND order_ == 10")
+                    pk_value = st.text_input(f"Enter the product and order_ you would like to search. Follow the provided example above:")
+                else:
+                    st.write(f"Primary Key: {primary_key_info}")
+                    st.write(f"e.g. WHERE product > 5")
+                    pk_value = st.text_input("Which column would you like to search?")
+                    cond = st.text_input("What condition would you like to use?")
+                    
+                
+            if pk_value:
+                found_rows = handle_search(table_choice.lower(), primary_key_info, pk_value)
+                if found_rows:
+                    st.write(f"{pk_value} was found")
+                    st.session_state["single_button"] = False
+                    con_buttons = ['=', '>', '<', '>=', '<=', '!=']
+                    con_choice = st.selectbox("Choose a condition:", con_buttons)
+                    if con_choice:
+                        found_rows = handle_search(table_choice.lower(), primary_key_info, pk_value, con_choice, cond)
+                        if found_rows:
+                            st.write(f"{pk_value} was found")
+                            st.session_state["single_button"] = False
+                        else:
+                            st.write("Row cannot be found")
+                    else:
+                        st.write("Row cannot be found")
+                else:
+                    st.write("Row cannot be found")
         
-        primary_key_info = get_primary_key_info(table_choice)
-        if primary_key_info:
-            if table_choice == "Order Details":
-                st.write(f"Composite Key: product, order_")
-                st.write("e.g. Product72,5")
-                pk_value = st.text_input(f"Enter the product and order_ you would like to search. Follow the provided example above:")
-            else:
-                st.write(f"Primary Key: {primary_key_info}")
-                pk_value = st.text_input(f"Enter the {primary_key_info} you would like to search:")
-            
-        if pk_value:
-            # Assuming you have a function to handle the search operation
-            found_rows = handle_search(table_choice.lower(), primary_key_info, pk_value)
-            if found_rows:
-                st.write(f"{pk_value} was found")
-            else:
-                st.write("Row cannot be found")
+
 
 
 if __name__ == "__main__":
