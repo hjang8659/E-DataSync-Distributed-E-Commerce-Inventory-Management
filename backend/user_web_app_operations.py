@@ -16,16 +16,23 @@ class UserOperations:
         self.opr = DBMOperations()
 
    
-    def insert(self, table_name, attributes):
+    def insert(self, table_name, columns, values):
         """
-        function to insert table_name with attributes.
+        function to insert table_name with columns and values.
         """
         # Insert from opr is only for supplier name, would need to change it to work with any table
-        str_attributes = ", ".join(attributes)
+        # INSERT INTO table_name (column1, column2, column3, ...)
+        # VALUES (value1, value2, value3, ...);
 
-        flag, res = self.opr.insert(f'INSERT INTO {table_name} VALUES {str_attributes}')
-        print(flag, res)
-        return flag, res
+        if len(columns) != len(values):
+            print("Error: Length of columns and values do not match.")
+
+        str_columns = ", ".join(columns)
+        str_values = ", ".join(values)
+
+        flag = self.opr.insert(f'INSERT INTO {table_name} ({str_columns}) VALUES ({str_values})')
+        print(flag)
+        return flag
     
     def modify(self, table_name, columns, vals, key, search):
         """
