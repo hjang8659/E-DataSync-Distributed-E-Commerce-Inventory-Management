@@ -71,16 +71,73 @@ def get_table_name(table_name):
         return None
     
 
+# def insert_action():
+#     st.header("Insert Actions")
+        
+#     st.write("Choose one table to insert from:")
+#     buttons = ["Suppliers", "Products", "Orders", "Order Details"]
+
+#     table_choice = None
+
+#     for i, button_label in enumerate(buttons):
+#         if button(button_label, key=f"button{i+1}"):  # Use unique keys for each button
+#             table_choice = button_label
+
+#     table_name = get_table_name(table_choice)
+
+#     if table_choice:
+#         st.write(f"You selected {table_choice}.")
+        
+#         if table_choice == "Order Details":
+#             status, table_data = opr.opr.select(f"SELECT * FROM order_details")
+#         else:
+#             status, table_data = opr.opr.select(f"SELECT * FROM {table_choice.lower()}")
+    
+#         if status == 1:  # Check if the query was successful
+#             st.table(table_data[:5])  # Display only the first 5 rows of data
+            
+#         st.subheader(f"Insert {table_choice}")
+
+#         if table_choice == "Products":
+#             st.markdown("<p style='color:red'><strong>Make sure that the brand name corresponds to the correct brand name in the suppliers table.</strong></p>", unsafe_allow_html=True)
+#         if table_choice == "Order Details":
+#             st.markdown("<p style='color:red'><strong>Make sure that the order id corresponds to the correct order id in the orders table.</strong></p>", unsafe_allow_html=True)
+#             st.markdown("<p style='color:red'><strong>Make sure that the product name corresponds to the correct product name in the products table.</strong></p>", unsafe_allow_html=True)
+            
+#         st.write(f"Enter the following text boxes to insert:")
+
+#         # Assuming you have a function to get column names for the selected table
+#         column_names = np.unique(get_column_names(table_choice))
+#         # Create text input boxes for each column
+#         inputs = {}
+#         for column_name in column_names:
+#             inputs[column_name] = st.text_input(f"Enter {column_name}:")
+            
+#         if button("Insert", key="insert_confirm"):
+#             # Confirmation prompt
+#             st.write("Are you sure you want to insert this data?")
+#             if button("Yes", key="insert_confirm_yes"):
+#                 print("column_names:", column_names)
+#                 vals = [inputs[column_name] for column_name in column_names]
+#                 print("vals:",vals)
+#                 flag = opr.insert(table_name, column_names, vals)
+                
+#                 if flag:
+#                     st.success("Data inserted successfully!")
+#                 else:
+#                     st.error(f"Error inserting data")
+        
+#         insert_action()
+
 def insert_action():
     st.header("Insert Actions")
         
     st.write("Choose one table to insert from:")
     buttons = ["Suppliers", "Products", "Orders", "Order Details"]
 
-    table_choice = None
-
+    # Fixing the keys of the buttons
     for i, button_label in enumerate(buttons):
-        if button(button_label, key=f"button{i+1}"):  # Use unique keys for each button
+        if button(button_label, key=f"insert_button_{i+1}"):  # Use unique keys for each button
             table_choice = button_label
 
     table_name = get_table_name(table_choice)
@@ -113,14 +170,13 @@ def insert_action():
         for column_name in column_names:
             inputs[column_name] = st.text_input(f"Enter {column_name}:")
             
-        if button("Insert", key="insert_confirm"):
+        # Fixing the keys of the buttons
+        if button("Insert", key="insert_confirm_button"):
             # Confirmation prompt
             st.write("Are you sure you want to insert this data?")
-            if button("Yes", key="insert_confirm_yes"):
+            if button("Yes", key="insert_confirm_yes_button"):
                 # Get values from text inputs  
                 attributes = [inputs[column_name] for column_name in column_names]
-                # print('attributessSSSSSSSSS', attributes)
-                # print('column_namesSSSSSSSSS', column_names)
 
                 # Call insert_data function with table name and attributes
                 column_names_str = ", ".join(column_names)
@@ -136,8 +192,9 @@ def insert_action():
                     st.success("Data inserted successfully!")
                 else:
                     st.error(f"Error inserting data")
-            if button("No", key="insert_no"):
+            if button("No", key="insert_no_button"):
                 st.write("Insertion cancelled")
+
 
 
 def get_column_names(table_name):
