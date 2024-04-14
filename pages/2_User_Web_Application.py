@@ -117,18 +117,15 @@ def insert_action():
             # Confirmation prompt
             st.write("Are you sure you want to insert this data?")
             if button("Yes", key="insert_confirm_yes"):
-                print("column_names:", column_names)
                 vals = [inputs[column_name] for column_name in column_names]
-                print("vals:",vals)
                 flag = opr.insert(table_name, column_names, vals)
                 
                 if flag:
                     st.success("Data inserted successfully!")
                 else:
                     st.error(f"Error inserting data")
-        
-        insert_action()
-
+            elif button("No", key="insert_confirm_no"):
+                st.write("Insertion cancelled.")
 
 def get_column_names(table_name):
     """
@@ -201,16 +198,16 @@ def update_action():
                     inputs[column_name] = st.text_input(f"Enter {column_name}:")
                 if button("Update", key="update_confirm"):
                     attributes = [inputs[column_name] for column_name in column_names]
-                    print("TABLE NAME:", table_name)
-                    print("ATTRIBUTES:", attributes)
-                    print("COLUMNS:", column_names)
-                    print("PRIMARY KEY INFO:", primary_key_info)
-                    print("PK VALUE:", pk_value)
+                    # print("TABLE NAME:", table_name)
+                    # print("ATTRIBUTES:", attributes)
+                    # print("COLUMNS:", column_names)
+                    # print("PRIMARY KEY INFO:", primary_key_info)
+                    # print("PK VALUE:", pk_value)
                     key = [primary_key_info]
                     search = [pk_value]
                     flag = opr.modify(table_name, column_names, attributes, key, search)
                     if flag == 1:
-                        update_action()
+                        st.write("Update successful")
                     else:
                         st.write("Update failed")
             else:
