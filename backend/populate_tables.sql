@@ -1,5 +1,6 @@
 USE mydatabase;
 
+
 INSERT INTO suppliers (brand_name, address, brand_description, founding_year, num_of_products) VALUES
 ('Brand1', 'Address1', 'Description1', 2000, 50),
 ('Brand2', 'Address2', 'Description2', 1995, 60),

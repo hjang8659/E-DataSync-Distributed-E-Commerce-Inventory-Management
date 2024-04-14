@@ -25,7 +25,7 @@ CREATE TABLE products (
 
 CREATE TABLE orders (
     order_id INT UNSIGNED PRIMARY KEY,
-    date TEXT,
+    date DATE,
     total_price INT UNSIGNED
 );
 
@@ -64,7 +64,7 @@ CREATE TABLE products (
 
 CREATE TABLE orders (
     order_id INT UNSIGNED PRIMARY KEY,
-    date TEXT,
+    date DATE,
     total_price INT UNSIGNED
 );
 
