@@ -56,6 +56,15 @@ class UserOperations:
         # SET column1 = value1, column2 = value2, ...
         # WHERE condition;
 
+        query = f"SELECT COLUMN_NAME, DATA_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = '{table_name}'"
+        flag, res = self.opr.select(query)
+        data_type_dict = {key: value for key, value in res}
+        print(data_type_dict)
+        for i in range(len(columns)):
+            if data_type_dict[columns[i]] == "date" or data_type_dict[columns[i]] == "text" or data_type_dict[columns[i]] == "varchar":
+                vals[i] = "\'" + vals[i] + "\'"
+
+
         if len(key) != len(search):
             print("Error: Length of key and search do not match.")
         results = []
