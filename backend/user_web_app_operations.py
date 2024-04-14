@@ -27,19 +27,25 @@ class UserOperations:
         print(flag, res)
         return flag, res
     
-    def modify(self, table_name, attributes, operators , values, set_part):
+    def modify(self, table_name, columns, vals, key, search):
         """
         function to modify table_name with set attributes, operators, and values. Lastly, use the conditions. 
         """
-
         # UPDATE table_name
         # SET column1 = value1, column2 = value2, ...
         # WHERE condition;
-        if len(attributes) != len(values):
-            print("Error: Length of attributes and values do not match.")
+
+        if len(key) != len(search):
+            print("Error: Length of key and search do not match.")
         results = []
-        for i in range(len(attributes)):
-            results.append(attributes[i] + " " + operators[i] + " " + values[i])
+        for i in range(len(key)):
+            results.append(key[i] + " = " + search[i])
+
+        if len(columns) != len(vals):
+            print("Error: Length of columns and vals do not match.")
+        set_part = []
+        for i in range(len(columns)):
+            set_part.append(columns[i] + " = " + vals[i])
 
         str_conditions = ", ".join(results)
         str_set_part = ", ".join(set_part)
