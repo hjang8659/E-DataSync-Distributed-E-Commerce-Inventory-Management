@@ -38,7 +38,7 @@ def get_primary_key_info(table_name):
     elif table_name == "Orders":
         return "order_id"
     elif table_name == "Order Details":
-        return "product and order_"
+        return "product, order_"
     else:
         return None
 
@@ -204,8 +204,15 @@ def update_action():
                     print("TABLE NAME:", table_name)
                     print("ATTRIBUTES:", attributes)
                     print("COLUMNS:", column_names)
-                    
+                    print("PRIMARY KEY INFO:", primary_key_info)
+                    print("PK VALUE:", pk_value)
+                    key = [primary_key_info]
+                    search = [pk_value]
                     flag = opr.modify(table_name, column_names, attributes, key, search)
+                    if flag == 1:
+                        update_action()
+                    else:
+                        st.write("Update failed")
             else:
                 st.write("Row cannot be found")
         # if pk_value:
@@ -398,9 +405,9 @@ def handle_delete(table_name, primary_key, pk_value):
     flag = opr.opr.delete(query)  # Assuming opr.delete returns an integer status
     
     if flag == 1:
-        return True, "deletion successful"
+        return True, "Deletion successful"
     else:
-        return False, "deletion failed"
+        return False, "Deletion failed"
 
 
 def search_action():
