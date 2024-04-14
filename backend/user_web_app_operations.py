@@ -49,9 +49,9 @@ class UserOperations:
 
         str_conditions = ", ".join(results)
         str_set_part = ", ".join(set_part)
-        flag, res = self.opr.update(f'UPDATE {table_name} SET {str_set_part} WHERE {str_conditions}')
-        print(flag, res)
-        return flag, res
+        flag = self.opr.update(f'UPDATE {table_name} SET {str_set_part} WHERE {str_conditions}')
+        print(flag)
+        return flag
     
 
     def search(self, table_name, attributes):
