@@ -45,14 +45,14 @@ class DBMOperations:
             # products "brand" FK connects to "brand_name" PK in suppliers
 
             # getting "brand"
-            match = re.search(r"VALUES\s*\(\s*'(?:[^']|'')*'\s*,\s*'(?:[^']|'')*'\s*,\s*'(?:[^']|'')*'\s*,\s*'((?:[^']|'')*)'", query, re.IGNORECASE)
+            match = re.search(r"VALUES\s*\(\s*'([^']*)'", query, re.IGNORECASE)
 
             if match:
                 brand = match.group(1)
                 db_index = self.hash.generate_hash(brand)
 
             else:
-                print("Brand could not be found.")
+                print("Regex pattern couldn't find brand")
                 return 0
 
         elif table_name == "order_details":
@@ -60,14 +60,14 @@ class DBMOperations:
             # product name in the "product" attribute
 
             # Getting "product" from query
-            match = re.search(r"VALUES\s*\(\s*'([^']*)'", query, re.IGNORECASE)
+            match = re.search(r"VALUES\s*\(\s*\d+\s*,\s*'([^']*)'", query, re.IGNORECASE)
 
             if match:
                 product = match.group(1)
                 # Search by primary key for row, then obtain suppliers name
-                query = f"SELECT brand FROM products WHERE product_name = {product}"
+                query = f"SELECT brand FROM products WHERE product_name = '{product}'"
                 flag, result = self.select(query)
-                db_index = self.hash.generate_hash(result)
+                db_index = self.hash.generate_hash(result[0][0])
                 
             else:
                 print("Product could not be found.")

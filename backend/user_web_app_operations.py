@@ -64,6 +64,10 @@ class UserOperations:
             if data_type_dict[columns[i]] == "date" or data_type_dict[columns[i]] == "text" or data_type_dict[columns[i]] == "varchar":
                 vals[i] = "\'" + vals[i] + "\'"
 
+        for i in range(len(key)):
+            if data_type_dict[key[i]] == "date" or data_type_dict[key[i]] == "text" or data_type_dict[key[i]] == "varchar":
+                search[i] = "\'" + search[i] + "\'"
+
 
         if len(key) != len(search):
             print("Error: Length of key and search do not match.")
