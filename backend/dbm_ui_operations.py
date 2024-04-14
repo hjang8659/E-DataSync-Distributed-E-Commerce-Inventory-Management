@@ -65,8 +65,8 @@ class DBMOperations:
             if match:
                 product = match.group(1)
                 # Search by primary key for row, then obtain suppliers name
-                query = f"SELECT brand FROM products WHERE product_name = '{product}'"
-                flag, result = self.select(query)
+                query2 = f"SELECT brand FROM products WHERE product_name = '{product}'"
+                flag, result = self.select(query2)
                 db_index = self.hash.generate_hash(result[0][0])
                 
             else:
@@ -103,7 +103,6 @@ class DBMOperations:
         
         else: 
             print("Table not found:", table_name)
-            
         
         with self.engines[db_index].connect() as con:
             try:
@@ -130,9 +129,11 @@ class DBMOperations:
         Perform select operation on both databases and return combined results if successful.
         """
         try: 
+            
             results = []
             for engine in self.engines.values():
                 results.extend(self._execute_query(engine, query))
+            print(results)
             return 1, results
         except Exception as e:
             print(e)

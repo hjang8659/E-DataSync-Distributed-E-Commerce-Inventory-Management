@@ -98,6 +98,17 @@ class UserOperations:
         print(flag, res)
         return flag, res
     
+    def searchMany(self, table_name, attributes, col, search_cond):
+        """
+        function to search table_name with set attributes. 
+        """
+
+        str_attributes = ", ".join(attributes)
+        flag, res = self.opr.select(f'SELECT {str_attributes} FROM {table_name}')
+        print(flag, res)
+        return flag, res
+
+    
     def delete(self, table_name, conditions):
         """
         function to delete 1 row from table_name with conditions. 
