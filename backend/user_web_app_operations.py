@@ -24,6 +24,19 @@ class UserOperations:
         # INSERT INTO table_name (column1, column2, column3, ...)
         # VALUES (value1, value2, value3, ...);
 
+        # SELECT COLUMN_NAME, DATA_TYPE 
+        # FROM INFORMATION_SCHEMA.COLUMNS 
+        # WHERE TABLE_NAME = 'tbl_name';
+        query = f"SELECT COLUMN_NAME, DATA_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = '{table_name}'"
+        flag, res = self.opr.select(query)
+        data_type_dict = {key: value for key, value in res}
+        print(data_type_dict)
+        for i in range(len(columns)):
+            if data_type_dict[columns[i]] == "date" or data_type_dict[columns[i]] == "text" or data_type_dict[columns[i]] == "varchar":
+                values[i] = "\'" + values[i] + "\'"
+
+
+
         if len(columns) != len(values):
             print("Error: Length of columns and values do not match.")
 

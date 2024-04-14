@@ -74,11 +74,11 @@ class DBMOperations:
                 return 0
 
         elif table_name == "orders":
-            # ex query/ INSERT INTO orders (order_id, date, total_price) VALUES (1, '2024-04-10', 100);
+            # ex query/ INSERT INTO orders (date, order_id, total_price) VALUES ('2024-04-10', 1, 100);
             # Insert into database based on odd/even orders_id value
             # database 0 if even, database 1 if odd
             # Regular expression to find and capture the order_id
-            match = re.search(r"VALUES\s*\(\s*(\d+)", query, re.IGNORECASE)
+            match = re.search(r"VALUES\s*\(\s*'.+?',\s*(\d+)", query, re.IGNORECASE)
 
             if match:
                 order_id = int(match.group(1))
