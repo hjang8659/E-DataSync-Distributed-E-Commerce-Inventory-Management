@@ -21,7 +21,7 @@ class DBMOperations:
         """
         Helper function to extract supplier name from query.
         """
-        return query.split('values')[1].split(')')[0].split('(')[1].split(',')[0]
+        return query.split('VALUES')[1].split(')')[0].split('(')[1].split(',')[0]
 
     def insert(self, query):
         """
@@ -165,5 +165,7 @@ class DBMOperations:
 if __name__ == '__main__':
     opr = DBMOperations()
     
-    flag, res= opr.select("select * from products limit 10")
-    print(flag, res)
+    #flag= opr.insert("INSERT INTO orders (order_id, date, total_price) VALUES (99, '04-10-2025', 100)")
+    flag, res = opr.select("SELECT * FROM orders")
+    print(flag)
+    print(res)

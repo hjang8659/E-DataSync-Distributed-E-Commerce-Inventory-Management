@@ -29,6 +29,7 @@ class UserOperations:
 
         str_columns = ", ".join(columns)
         str_values = ", ".join(values)
+        print(f'INSERT INTO {table_name} ({str_columns}) VALUES ({str_values})')
 
         flag = self.opr.insert(f'INSERT INTO {table_name} ({str_columns}) VALUES ({str_values})')
         print(flag)
