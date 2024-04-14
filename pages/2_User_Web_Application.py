@@ -153,9 +153,9 @@ def get_column_names(table_name):
 def update_action():
     deletion_status = None
     st.header("Update Actions")
-        
+
     st.write("Choose one table to update from:")
-    buttons = ["Suppliers", "Products", "Orders", "Order Details"]
+    buttons = ["Suppliers", "Products", "Orders"]
 
     table_choice = None
 
@@ -196,6 +196,8 @@ def update_action():
                 inputs = {}
                 for column_name in column_names:
                     inputs[column_name] = st.text_input(f"Enter {column_name}:")
+                
+                
                 if button("Update", key="update_confirm"):
                     attributes = [inputs[column_name] for column_name in column_names]
                     # print("TABLE NAME:", table_name)
@@ -433,61 +435,61 @@ def search_action():
         if status == 1:  # Check if the query was successful
             st.table(table_data[:5])  # Display only the first 5 rows of data
 
-        st.write("Choose the type of search you would like to perform:")
-        single = button("Single", key="single_button")
-        multiple = button("Multiple", key="multiple_button")
-        if single:
-            primary_key_info = get_primary_key_info(table_choice)
-            if primary_key_info:
-                if table_choice == "Order Details":
-                    st.write(f"Composite Key: product, order_")
-                    st.write("e.g. Product72,5")
-                    pk_value = st.text_input(f"Enter the product and order_ you would like to search. Follow the provided example above:")
-                else:
-                    st.write(f"Primary Key: {primary_key_info}")
-                    pk_value = st.text_input(f"Enter the {primary_key_info} you would like to search:")
+        # st.write("Choose the type of search you would like to perform:")
+        # single = button("Single", key="single_button")
+        # multiple = button("Multiple", key="multiple_button")
+        # if single:
+        primary_key_info = get_primary_key_info(table_choice)
+        if primary_key_info:
+            if table_choice == "Order Details":
+                st.write(f"Composite Key: product, order_")
+                st.write("e.g. Product72,5")
+                pk_value = st.text_input(f"Enter the product and order_ you would like to search. Follow the provided example above:")
+            else:
+                st.write(f"Primary Key: {primary_key_info}")
+                pk_value = st.text_input(f"Enter the {primary_key_info} you would like to search:")
+            
+        if pk_value:
+            found_rows = handle_search(table_choice.lower(), primary_key_info, pk_value)
+            if found_rows:
+                st.write(f"{pk_value} was found")
+                st.session_state["single_button"] = False
                 
-            if pk_value:
-                found_rows = handle_search(table_choice.lower(), primary_key_info, pk_value)
-                if found_rows:
-                    st.write(f"{pk_value} was found")
-                    st.session_state["single_button"] = False
-                    
-                else:
-                    st.write("Row cannot be found")
+            else:
+                st.write("Row cannot be found")
 
-        if multiple:
-            primary_key_info = get_primary_key_info(table_choice)
-            if primary_key_info:
-                if table_choice == "Order Details":
-                    st.write(f"Composite Key: product, order_")
-                    st.write("e.g. WHERE product > 5 AND order_ == 10")
-                    pk_value = st.text_input(f"Enter the product and order_ you would like to search. Follow the provided example above:")
-                else:
-                    st.write(f"Primary Key: {primary_key_info}")
-                    st.write(f"e.g. WHERE product > 5")
-                    pk_value = st.text_input("Which column would you like to search?")
-                    cond = st.text_input("What condition would you like to use?")
+        # if multiple:
+        #     primary_key_info = get_primary_key_info(table_choice)
+        #     if primary_key_info:
+        #         if table_choice == "Order Details":
+        #             st.write(f"Composite Key: product, order_")
+        #             st.write("e.g. WHERE product > 5 AND order_ == 10")
+        #             pk_value = st.text_input(f"Enter the product and order_ you would like to search. Follow the provided example above:")
+        #         else:
+        #             st.write(f"Primary Key: {primary_key_info}")
+        #             st.write(f"e.g. WHERE product > 5")
+        #             pk_value = st.text_input("Which column would you like to search?")
+        #             cond = st.text_input("What condition would you like to use?")
                     
                 
-            if pk_value:
-                found_rows = handle_search(table_choice.lower(), primary_key_info, pk_value)
-                if found_rows:
-                    st.write(f"{pk_value} was found")
-                    st.session_state["single_button"] = False
-                    con_buttons = ['=', '>', '<', '>=', '<=', '!=']
-                    con_choice = st.selectbox("Choose a condition:", con_buttons)
-                    if con_choice:
-                        found_rows = handle_search(table_choice.lower(), primary_key_info, pk_value, con_choice, cond)
-                        if found_rows:
-                            st.write(f"{pk_value} was found")
-                            st.session_state["single_button"] = False
-                        else:
-                            st.write("Row cannot be found")
-                    else:
-                        st.write("Row cannot be found")
-                else:
-                    st.write("Row cannot be found")
+        #     if pk_value:
+        #         found_rows = handle_search(table_choice.lower(), primary_key_info, pk_value)
+        #         if found_rows:
+        #             st.write(f"{pk_value} was found")
+        #             st.session_state["single_button"] = False
+        #             con_buttons = ['=', '>', '<', '>=', '<=', '!=']
+        #             con_choice = st.selectbox("Choose a condition:", con_buttons)
+        #             if con_choice:
+        #                 found_rows = handle_search(table_choice.lower(), primary_key_info, pk_value, con_choice, cond)
+        #                 if found_rows:
+        #                     st.write(f"{pk_value} was found")
+        #                     st.session_state["single_button"] = False
+        #                 else:
+        #                     st.write("Row cannot be found")
+        #             else:
+        #                 st.write("Row cannot be found")
+        #         else:
+        #             st.write("Row cannot be found")
         
 
 
