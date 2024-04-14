@@ -107,7 +107,7 @@ def insert_action():
             # Confirmation prompt
             st.write("Are you sure you want to insert this data?")
             if button("Yes", key="insert_confirm_yes"):
-                # Get values from text inputs
+                # Get values from text inputs  
                 attributes = [inputs[column_name] for column_name in column_names]
                 # print('attributessSSSSSSSSS', attributes)
                 # print('column_namesSSSSSSSSS', column_names)
@@ -199,7 +199,13 @@ def update_action():
                 inputs = {}
                 for column_name in column_names:
                     inputs[column_name] = st.text_input(f"Enter {column_name}:")
-                
+                if button("Update", key="update_confirm"):
+                    attributes = [inputs[column_name] for column_name in column_names]
+                    print("TABLE NAME:", table_name)
+                    print("ATTRIBUTES:", attributes)
+                    print("COLUMNS:", column_names)
+                    
+                    flag = opr.modify(table_name, column_names, attributes, key, search)
             else:
                 st.write("Row cannot be found")
         # if pk_value:
