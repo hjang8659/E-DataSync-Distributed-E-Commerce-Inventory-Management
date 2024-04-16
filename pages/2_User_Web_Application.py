@@ -190,16 +190,16 @@ def update_action():
             # Assuming you have a function to handle the search operation
             found_rows = handle_search(table_choice.lower(), primary_key_info, pk_value)
             if found_rows:
-                st.write(f"{pk_value} was found")
+                st.write(f"**{pk_value} was found**")
                 table_name = get_table_name(table_choice)
                 column_names = np.unique(get_column_names(table_choice))
                 inputs = {}
                 for column_name in column_names:
                     if column_name == "brand":
-                        st.markdown("<p style='color:red'><strong>Cannot modity brand attribute due to foreign key constraint.</strong></p>", unsafe_allow_html=True)
                         status, table_data = opr.opr.select(f"SELECT brand FROM {table_choice.lower()} WHERE {primary_key_info} = '{pk_value}'")
                         brand_name = str(table_data)[3:-4]
-                        st.markdown(f"<p style='color:red; font-weight:bold;'>brand: {brand_name}</p>", unsafe_allow_html=True)
+                        st.markdown(f"<p style='color:red; font-weight:bold;'>brand: {brand_name} --- Cannot modity brand attribute due to foreign key constraint.</p>", unsafe_allow_html=True)
+                        inputs[column_name] = brand_name
                     else:
                         inputs[column_name] = st.text_input(f"Enter {column_name}:")
                 
