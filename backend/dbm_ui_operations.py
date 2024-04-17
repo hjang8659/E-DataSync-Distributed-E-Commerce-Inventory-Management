@@ -21,7 +21,36 @@ class DBMOperations:
         """
         Helper function to extract supplier name from query.
         """
-        return query.split('VALUES')[1].split(')')[0].split('(')[1].split(',')[0]
+
+        # Search for the column names in the INSERT statement
+        columns_match = re.search(r"INSERT INTO suppliers \(([^)]+)\)", query, re.IGNORECASE)
+        if not columns_match:
+            print("Column names could not be found.")
+            return 0
+
+        # Parse the columns from the query and clean up any whitespace
+        columns = [column.strip() for column in columns_match.group(1).split(',')]
+
+        # Find index of 'brand_name' in the columns list
+        try:
+            brand_name_index = columns.index('brand_name')
+        except ValueError:
+            print("Brand name column could not be found.")
+            return 0
+
+        # Extract the corresponding value from the VALUES clause
+        values_match = re.search(r"VALUES\s*\(([^)]+)\)", query, re.IGNORECASE)
+        if not values_match:
+            print("Values could not be found.")
+            return 0
+
+        # Parse the values from the query and remove any surrounding whitespace or quotes
+        values = [value.strip().strip("'\"") for value in values_match.group(1).split(',')]
+
+        # Retrieve the 'brand_name' value using the found index
+        brand_name = values[brand_name_index]
+
+        return brand_name
     
     def update_query_values(self, query, table_name):
         """
@@ -94,9 +123,20 @@ class DBMOperations:
             for column, dtype in data_type_dict.items():
                 if dtype in ["text", "varchar", "date"]:
                     # Quote string values in WHERE clause
-                    print('k')
-                    #pattern = rf"(\b{column}\b\s*=\s*)([^\s]+)"
-                    #where_clause = re.sub(pattern, lambda m: f"{m.group(1)}'{m.group(2).strip('\'')}'", where_clause, flags=re.IGNORECASE)
+                    pattern = rf"(\b{column}\b\s*=\s*)([^\s]+)"
+                    def replacement(match):
+                        # Extract the parts from the regex match
+                        before_value = match.group(1)
+                        value = match.group(2).strip('\'')
+                        
+                        # Prepare the value with quotes, avoiding backslashes in f-string expressions
+                        quoted_value = f"'{value}'"
+                        
+                        # Return the concatenation of the parts
+                        return before_value + quoted_value
+
+                    # Apply the replacement function
+                    where_clause = re.sub(pattern, replacement, where_clause, flags=re.IGNORECASE)
 
         # Construct the updated query
         before_set = query[:set_match.start()]  # Everything before SET
@@ -128,7 +168,9 @@ class DBMOperations:
         if table_name == "suppliers":
             # Looks like it can only insert 1 value at a time
             supplier_name = self._get_supplier_name(query)
+            print(supplier_name)
             db_index = self.hash.generate_hash(supplier_name)
+            print(db_index)
 
         elif table_name == "products":
             # Join products and suppliers as a view, then get supplier name from it and database index
@@ -139,7 +181,9 @@ class DBMOperations:
 
             if match:
                 brand = match.group(1)
+                print(brand)
                 db_index = self.hash.generate_hash(brand)
+                print(db_index)
 
             else:
                 print("Regex pattern couldn't find brand")
