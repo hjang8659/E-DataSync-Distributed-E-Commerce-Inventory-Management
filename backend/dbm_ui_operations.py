@@ -78,6 +78,7 @@ class DBMOperations:
 
     def _update_insert_query_values(self, query, data_type_dict):
         # Extract and format VALUES for INSERT query
+        print(query)
         values_match = re.search(r"VALUES\s*\(([^)]+)\)", query, re.IGNORECASE)
         columns_match = re.search(r"INSERT INTO\s+[^\s]+\s*\(([^)]+)\)", query, re.IGNORECASE)
         if not values_match or not columns_match:
@@ -85,11 +86,13 @@ class DBMOperations:
         
         values_list = [val.strip() for val in values_match.group(1).split(',')]
         columns_list = [col.strip() for col in columns_match.group(1).split(',')]
+        print(values_list)
         
         if len(columns_list) != len(values_list):
             raise ValueError("Mismatch between number of columns and number of values.")
 
         new_values = [self._format_value(value.strip("'\""), col, data_type_dict) for col, value in zip(columns_list, values_list)]
+        print(new_values)
         new_values_str = ', '.join(new_values)
         updated_query = re.sub(r"VALUES\s*\([^)]+\)", f"VALUES ({new_values_str})", query, flags=re.IGNORECASE)
         return updated_query
@@ -146,6 +149,9 @@ class DBMOperations:
 
     def _format_value(self, value, column, data_type_dict):
         # Helper to format value based on column's data type
+        if column not in data_type_dict:
+            print("Error:", column + " not found")
+        
         if column in data_type_dict and data_type_dict[column] in ["date", "text", "varchar"]:
             return f"'{value}'"  # Ensure value is safely quoted
         return value
@@ -176,36 +182,81 @@ class DBMOperations:
             # Join products and suppliers as a view, then get supplier name from it and database index
             # products "brand" FK connects to "brand_name" PK in suppliers
 
-            # getting "brand"
-            match = re.search(r"VALUES\s*\(\s*'([^']*)'", query, re.IGNORECASE)
-
-            if match:
-                brand = match.group(1)
-                print(brand)
-                db_index = self.hash.generate_hash(brand)
-                print(db_index)
-
+            # Search for the column names in the INSERT statement
+            columns_match = re.search(r"INSERT INTO products \(([^)]+)\)", query, re.IGNORECASE)
+            if not columns_match:
+                print("Column names could not be found.")
             else:
-                print("Regex pattern couldn't find brand")
-                return 0
+                # Parse the columns from the query and clean up any whitespace
+                columns = [column.strip() for column in columns_match.group(1).split(',')]
+
+                # Find index of 'brand_name' in the columns list
+                try:
+                    brand_name_index = columns.index('brand')
+                except ValueError:
+                    print("Brand name column could not be found.")
+                else:
+                    # Extract the corresponding value from the VALUES clause
+                    values_match = re.search(r"VALUES\s*\(([^)]+)\)", query, re.IGNORECASE)
+                    if not values_match:
+                        print("Values could not be found.")
+                    else:
+                        # Since the values might include commas inside quotes, handling this requires a more robust approach:
+                        values = re.findall(r"[^,]+", values_match.group(1))
+
+                        # Parse the values and clean them
+                        values = [value.strip().strip("'\"") for value in values]
+
+                        # Retrieve the 'brand_name' value using the found index
+                        if len(values) >= brand_name_index:  # Ensure we have enough values
+                            brand = values[brand_name_index]
+                            print(f"Brand Name: {brand}")
+                            db_index = self.hash.generate_hash(brand)
+                            print(db_index)
 
         elif table_name == "order_details":
             # Join order_details to the products view to get the supplier name and database index
             # product name in the "product" attribute
 
-            # Getting "product" from query
-            match = re.search(r"VALUES\s*\(\s*\d+\s*,\s*'([^']*)'", query, re.IGNORECASE)
-
-            if match:
-                product = match.group(1)
-                # Search by primary key for row, then obtain suppliers name
-                query2 = f"SELECT brand FROM products WHERE product_name = '{product}'"
-                flag, result = self.select(query2)
-                db_index = self.hash.generate_hash(result[0][0])
-                
+            columns_match = re.search(r"INSERT INTO order_details \(([^)]+)\)", query, re.IGNORECASE)
+            if not columns_match:
+                print("Column names could not be found.")
             else:
-                print("Product could not be found.")
-                return 0
+                # Parse the columns from the query and clean up any whitespace
+                columns = [column.strip() for column in columns_match.group(1).split(',')]
+
+                # Find index of 'product' in the columns list
+                try:
+                    product_name_index = columns.index('product')
+                except ValueError:
+                    print("product name column could not be found.")
+                else:
+                    # Extract the corresponding value from the VALUES clause
+                    values_match = re.search(r"VALUES\s*\(([^)]+)\)", query, re.IGNORECASE)
+                    if not values_match:
+                        print("Values could not be found.")
+                    else:
+                        # Since the values might include commas inside quotes, handling this requires a more robust approach:
+                        values = re.findall(r"[^,]+", values_match.group(1))
+
+                        # Parse the values and clean them
+                        values = [value.strip().strip("'\"") for value in values]
+
+                        # Retrieve the 'brand_name' value using the found index
+                        if len(values) >= product_name_index:  # Ensure we have enough values
+                            product = values[product_name_index]
+                            print(f"Product Name: {product}")
+                            # Search by primary key for row, then obtain suppliers name
+                            query2 = f"SELECT brand FROM products WHERE product_name = '{product}'"
+                            flag, result = self.select(query2)
+                            if result == [] or result is None:
+                                raise ValueError(product + " not found")
+                            print(result)
+                            db_index = self.hash.generate_hash(result[0][0])
+                            print(db_index)
+                        else:
+                            print("Product could not be found.")
+                            return 0
 
         elif table_name == "orders":
             # WORKS
@@ -253,9 +304,6 @@ class DBMOperations:
                     return 0
                 
             db_index = 1 - db_index 
-
-
-
             print("ok")
         
         else: 
