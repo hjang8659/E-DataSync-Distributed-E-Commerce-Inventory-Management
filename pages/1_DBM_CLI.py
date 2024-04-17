@@ -1,5 +1,6 @@
 import streamlit as st
 from backend.dbm_ui_operations import DBMOperations
+# import pandas as pd
 
 class DeveloperPage:
     def __init__(self):
@@ -45,6 +46,9 @@ class DeveloperPage:
 
                 if command_used == "select":
                     flag, res = opr.select(sql_query)
+                    # print("res dtype", type(res), res)
+                    res = list(set(res))
+                    # df.drop_duplicates(inplace=True)
                     if flag == 0:
                         st.error("Error: Syntax error or database error")
                     else:
