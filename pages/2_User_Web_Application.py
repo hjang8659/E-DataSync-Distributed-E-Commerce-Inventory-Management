@@ -121,11 +121,17 @@ def insert_action():
                 flag = opr.insert(table_name, column_names, vals)
                 
                 if flag:
-                    st.success("Data inserted successfully!")
+                    st.success("Data inserted successfully.")
+                    if button("Reset", key="insert_reset"):
+                        insert_action()
                 else:
-                    st.error(f"Error inserting data")
+                    st.error(f"Error inserting data.")
+                    if button("Reset", key="insert_reset"):
+                        insert_action()
             elif button("No", key="insert_confirm_no"):
                 st.write("Insertion cancelled.")
+                if button("Reset", key="insert_reset"):
+                    insert_action()
 
 def get_column_names(table_name):
     """
@@ -190,7 +196,7 @@ def update_action():
             # Assuming you have a function to handle the search operation
             found_rows = handle_search(table_choice.lower(), primary_key_info, pk_value)
             if found_rows:
-                st.write(f"**{pk_value} was found**")
+                st.write(f"**{pk_value} was found.**")
                 table_name = get_table_name(table_choice)
                 column_names = np.unique(get_column_names(table_choice))
                 inputs = {}
@@ -210,11 +216,11 @@ def update_action():
                     search = [pk_value]
                     flag = opr.modify(table_name, column_names, attributes, key, search)
                     if flag == 1:
-                        st.write("Update successful")
+                        st.write("Update successful.")
                     else:
-                        st.write("Update failed")
+                        st.write("Update failed.")
             else:
-                st.write("Row cannot be found")
+                st.write(f"**{pk_value} cannot be found.**")
 
 
 def handle_search(table_name, primary_key, pk_value):
@@ -287,7 +293,7 @@ def delete_action():
             # Assuming you have a function to handle the search operation
             found_rows = handle_search(table_choice.lower(), primary_key_info, pk_value)
             if found_rows:
-                    st.write(f"{pk_value} was found")
+                    st.write(f"{pk_value} was found.")
                     st.write("Are you sure you want to remove this record?")
                     y = button("Yes, remove", key=f'yes00_{table_choice}_{pk_value}')  # Unique key for each button
                     n = button("No, cancel", key=f'no00_{table_choice}_{pk_value}')  # Unique key for each button
@@ -306,7 +312,7 @@ def delete_action():
                     else:
                         st.write("")
             else:
-                    st.write("Row cannot be found")
+                    st.write(f"**{pk_value} cannot be found.**")
 
 
 def handle_delete(table_name, primary_key, pk_value):
@@ -329,9 +335,9 @@ def handle_delete(table_name, primary_key, pk_value):
     flag = opr.opr.delete(query)  # Assuming opr.delete returns an integer status
     
     if flag == 1:
-        return True, "Deletion successful"
+        return True, "Deletion successful."
     else:
-        return False, "Deletion failed"
+        return False, "Deletion failed."
 
 
 def search_action():
@@ -370,11 +376,11 @@ def search_action():
         if pk_value:
             found_rows = handle_search(table_choice.lower(), primary_key_info, pk_value)
             if found_rows:
-                st.write(f"{pk_value} was found")
+                st.write(f"{pk_value} was found.")
                 st.session_state["single_button"] = False
                 
             else:
-                st.write("Row cannot be found")
+                st.write(f"**{pk_value} cannot be found.**")
 
 
 if __name__ == "__main__":
