@@ -301,8 +301,9 @@ class DBMOperations:
                     con.commit()
                     con.close()
                 except Exception as e:
-                    print(e)
-                    return 0
+                    # print(e)
+                    raise e
+                    # return 0
                 
             db_index = 1 - db_index 
             print("ok")
@@ -317,8 +318,9 @@ class DBMOperations:
                 con.close()
                 return 1
             except Exception as e:
-                print(e)
-                return 0
+                # print(e)
+                raise e
+                # return 0
 
     def _execute_query(self, engine, query):
         """
@@ -339,11 +341,11 @@ class DBMOperations:
             results = []
             for engine in self.engines.values():
                 results.extend(self._execute_query(engine, query))
-            print(results)
             return 1, results
         except Exception as e:
-            print(e)
-            return 0, None
+            # print(e)
+            raise e
+            # return 0
 
     def update(self, query):
         """
@@ -362,8 +364,9 @@ class DBMOperations:
                 self._execute_query(engine, query)
             return 1
         except Exception as e:
-            print(e)
-            return 0
+            # print(e)
+            raise e
+            # return 0
 
     def delete(self, query):
         """
@@ -374,8 +377,9 @@ class DBMOperations:
                 self._execute_query(engine, query)
             return 1
         except Exception as e:
-            print(e)
-            return 0
+            # print(e)
+            raise e
+            # return 0
 
 if __name__ == '__main__':
     opr = DBMOperations()
