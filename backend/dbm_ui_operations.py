@@ -1,6 +1,6 @@
 from sqlalchemy import create_engine, text
-# from backend.hashing import hash_supplier
-from hashing import hash_supplier
+from backend.hashing import hash_supplier
+# from hashing import hash_supplier
 import re
 
 class DBMOperations:
