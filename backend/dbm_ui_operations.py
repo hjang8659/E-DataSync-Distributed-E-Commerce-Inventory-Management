@@ -94,8 +94,9 @@ class DBMOperations:
             for column, dtype in data_type_dict.items():
                 if dtype in ["text", "varchar", "date"]:
                     # Quote string values in WHERE clause
-                    pattern = rf"(\b{column}\b\s*=\s*)([^\s]+)"
-                    where_clause = re.sub(pattern, lambda m: f"{m.group(1)}'{m.group(2).strip('\'')}'", where_clause, flags=re.IGNORECASE)
+                    print('k')
+                    #pattern = rf"(\b{column}\b\s*=\s*)([^\s]+)"
+                    #where_clause = re.sub(pattern, lambda m: f"{m.group(1)}'{m.group(2).strip('\'')}'", where_clause, flags=re.IGNORECASE)
 
         # Construct the updated query
         before_set = query[:set_match.start()]  # Everything before SET
