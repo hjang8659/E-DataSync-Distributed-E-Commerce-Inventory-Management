@@ -70,6 +70,7 @@ class DBMOperations:
         Extract and format the SET part of an UPDATE query while preserving the WHERE clause.
         """
         # Extract the entire portion after SET up to an optional WHERE or the end of the query
+        # Extract the SET part and format it
         set_match = re.search(r"SET\s+(.+?)(?=\sWHERE\s|\s*$)", query, re.IGNORECASE)
         if not set_match:
             raise ValueError("Malformed UPDATE query.")
@@ -79,14 +80,27 @@ class DBMOperations:
         for pair in set_list:
             column, value = pair.split('=')
             column = column.strip()
-            value = value.strip()
-            formatted_value = self._format_value(value.strip("'\""), column, data_type_dict)
+            value = value.strip().strip("'\"")  # Remove existing quotes for uniformity
+            formatted_value = self._format_value(value, column, data_type_dict)
             new_set_parts.append(f"{column} = {formatted_value}")
 
         new_set_str = ', '.join(new_set_parts)
-        # Replace the SET part correctly, ensuring the WHERE clause, if present, is not disturbed
-        updated_query = re.sub(r"SET\s+.+?(?=\sWHERE\s|\s*$)", f"SET {new_set_str}", query, flags=re.IGNORECASE)
 
+        # Check for and format the WHERE clause
+        where_match = re.search(r"WHERE\s+(.+)$", query, re.IGNORECASE)
+        where_clause = ""
+        if where_match:
+            where_clause = where_match.group(1)
+            for column, dtype in data_type_dict.items():
+                if dtype in ["text", "varchar", "date"]:
+                    # Quote string values in WHERE clause
+                    pattern = rf"(\b{column}\b\s*=\s*)([^\s]+)"
+                    where_clause = re.sub(pattern, lambda m: f"{m.group(1)}'{m.group(2).strip('\'')}'", where_clause, flags=re.IGNORECASE)
+
+        # Construct the updated query
+        before_set = query[:set_match.start()]  # Everything before SET
+        after_where = query[where_match.end():] if where_match else ''  # Anything after WHERE clause
+        updated_query = f"{before_set}SET {new_set_str} WHERE {where_clause}{after_where}"
         return updated_query
 
     def _format_value(self, value, column, data_type_dict):
