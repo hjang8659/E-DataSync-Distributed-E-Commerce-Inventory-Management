@@ -122,16 +122,16 @@ def insert_action():
                 
                 if flag:
                     st.success("Data inserted successfully.")
-                    if button("Reset", key="insert_reset"):
-                        insert_action()
+                    # if button("Reset", key="insert_reset"):
+                    #     insert_action()
                 else:
                     st.error(f"Error inserting data.")
-                    if button("Reset", key="insert_reset"):
-                        insert_action()
+                    # if button("Reset", key="insert_reset"):
+                    #     insert_action()
             elif button("No", key="insert_confirm_no"):
                 st.write("Insertion cancelled.")
-                if button("Reset", key="insert_reset"):
-                    insert_action()
+                # if button("Reset", key="insert_reset"):
+                #     insert_action()
 
 def get_column_names(table_name):
     """
@@ -242,6 +242,7 @@ def handle_search(table_name, primary_key, pk_value):
         query = f"SELECT * FROM {table_name} WHERE {primary_key} = {pk_value}"
     
     flag, result = opr.opr.select(query)
+    result = list(set(result))
     
     if flag == 1:
         if result:
