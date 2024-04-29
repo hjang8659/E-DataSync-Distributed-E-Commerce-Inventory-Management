@@ -75,6 +75,7 @@ def insert_action():
     st.header("Insert Actions")
         
     st.write("Choose one table to insert from:")
+    st.markdown("<p style='color:red'><strong>If you would like to select a different table, please deselect your current selection first.</strong></p>", unsafe_allow_html=True)
     buttons = ["Suppliers", "Products", "Orders", "Order Details"]
 
     table_choice = None
@@ -122,16 +123,13 @@ def insert_action():
                 
                 if flag:
                     st.success("Data inserted successfully.")
-                    # if button("Reset", key="insert_reset"):
-                    #     insert_action()
+                    st.write(f"Please refresh the page to perform next action.")
                 else:
                     st.error(f"Error inserting data.")
-                    # if button("Reset", key="insert_reset"):
-                    #     insert_action()
+                    st.write(f"Please refresh the page to perform next action.")
             elif button("No", key="insert_confirm_no"):
                 st.write("Insertion cancelled.")
-                # if button("Reset", key="insert_reset"):
-                #     insert_action()
+                st.write(f"Please refresh the page to perform next action.")
 
 def get_column_names(table_name):
     """
@@ -161,6 +159,7 @@ def update_action():
     st.header("Update Actions")
 
     st.write("Choose one table to update from:")
+    st.markdown("<p style='color:red'><strong>If you would like to select a different table, please deselect your current selection first.</strong></p>", unsafe_allow_html=True)
     buttons = ["Suppliers", "Products", "Orders"]
 
     table_choice = None
@@ -217,8 +216,11 @@ def update_action():
                     flag = opr.modify(table_name, column_names, attributes, key, search)
                     if flag == 1:
                         st.write("Update successful.")
+                        st.write(f"Please refresh the page to perform next action.")
                     else:
                         st.write("Update failed.")
+                        st.write(f"Please refresh the page to perform next action.")
+                        
             else:
                 st.write(f"**{pk_value} cannot be found.**")
 
@@ -259,13 +261,16 @@ def delete_action():
     st.header("Delete Actions")
         
     st.write("Choose one table to delete from:")
+    st.markdown("<p style='color:red'><strong>If you would like to select a different table, please deselect your current selection first.</strong></p>", unsafe_allow_html=True)
     buttons = ["Suppliers", "Products", "Orders", "Order Details"]
 
     table_choice = None
+    key_choice = None
 
     for i, button_label in enumerate(buttons):
         if button(button_label, key=f"button{i+1}"):  # Use unique keys for each button
             table_choice = button_label
+            key_choice = f"button{i+1}"
 
     if table_choice:
         st.write(f"You selected {table_choice}.")
@@ -301,15 +306,11 @@ def delete_action():
                     if y:
                         deletion_status, msg = handle_delete(table_choice.lower(), primary_key_info, pk_value)
                         if deletion_status:
-                                st.write(f"{pk_value} {msg}")
-                                # Prompt user to remove another record
-                                st.write("Would you like to remove another?")
-                                if button("Yes", key=f'yes1_{table_choice}'):  # Unique key for each button
-                                    delete_action()  # Restart delete action
-                                if button("No", key=f'no1_{table_choice}'):  # Unique key for each button
-                                    st.write("Deletion process ended.")
+                            st.write(f"{pk_value} {msg}")
+                            st.write(f"Please refresh the page to perform next action.")
                     elif n:
                         st.write(f"{pk_value} deletion cancelled.")
+                        st.write(f"Please refresh the page to perform next action.")
                     else:
                         st.write("")
             else:
@@ -336,7 +337,7 @@ def handle_delete(table_name, primary_key, pk_value):
     flag = opr.opr.delete(query)  # Assuming opr.delete returns an integer status
     
     if flag == 1:
-        return True, "Deletion successful."
+        return True, "deletion successful."
     else:
         return False, "Deletion failed."
 
@@ -345,6 +346,7 @@ def search_action():
     st.header("Search Actions")
         
     st.write("Choose one table to search from:")
+    st.markdown("<p style='color:red'><strong>If you would like to select a different table, please deselect your current selection first.</strong></p>", unsafe_allow_html=True)
     buttons = ["Suppliers", "Products", "Orders", "Order Details"]
     table_choice = None
 
