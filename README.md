@@ -11,10 +11,6 @@ Home.py (execution script/home page)
 **Conda Environment**: e-datasync.yml (included in repo code structure),
 **Execution command**: streamlit run Home.py, **Password for DBM CLI**: dsci551
 
-**Database tables**:
-1. suppliers
-2. products
-3. orders
-4. order_details
+**Database tables**: 1. suppliers, 2. products, 3. orders, 4. order_details
 
 ![ERD](https://github.com/hjang8659/E-DataSync-Distributed-E-Commerce-Inventory-Management/assets/156507308/728b16f3-c5da-4007-b69c-d8f05fc48eed)
