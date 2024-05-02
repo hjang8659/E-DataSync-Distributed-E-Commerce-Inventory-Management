@@ -24,13 +24,13 @@ class DSCI551Project:
         st.image('frontend/display.jpeg')
         # st.image('frontend/ERD.png')
 
-        st.markdown(
-            """
-            E-DataSync is an innovative E-commerce inventory management system designed
-            to enhance communication and interaction between database
-            managers and end users across distributed databases.
-        """
-        )
+        # st.markdown(
+        #     """
+        #     E-DataSync is an innovative E-commerce inventory management system designed
+        #     to enhance communication and interaction between database
+        #     managers and end users across distributed databases.
+        # """
+        # )
 
         st.write('### Team Members:')
         st.write('Christopher Apton (apton@usc.edu)')
