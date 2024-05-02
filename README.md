@@ -17,3 +17,6 @@ the User Web Application page calls functions from backend.user_web_app_operatio
 **Database tables**: 1. suppliers, 2. products, 3. orders, 4. order_details
 
 ![ERD](https://github.com/hjang8659/E-DataSync-Distributed-E-Commerce-Inventory-Management/assets/156507308/728b16f3-c5da-4007-b69c-d8f05fc48eed)
+
+![Flow_diagram-final](https://github.com/hjang8659/E-DataSync-Distributed-E-Commerce-Inventory-Management/assets/156507308/d71b049e-e426-4256-848f-a090d6bcdd99)
+
