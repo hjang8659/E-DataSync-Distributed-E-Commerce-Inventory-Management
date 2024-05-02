@@ -6,10 +6,13 @@
 backend (database management and query processing),
 frontend (user interface and web application backend and frontend),
 pages (application pages),
-Home.py (execution script/home page)
+Home.py (execution script/home page),
+the DBM CLI page calls functions from backend.dbm_ui_operations,
+the User Web Application page calls functions from backend.user_web_app_operations.
+
 
 **Conda Environment**: e-datasync.yml (included in repo code structure),
-**Execution command**: streamlit run Home.py, **Password for DBM CLI**: dsci551
+**Execution command**: streamlit run Home.py, **Password for DBM CLI**: dsci551, 
 
 **Database tables**: 1. suppliers, 2. products, 3. orders, 4. order_details
 
